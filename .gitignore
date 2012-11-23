@@ -4,4 +4,6 @@ bin
 *~
 # Ignore the target directory
 # Matches "target" in any subfolder
-target/ 
+Parser/RuleGrammarLexer.java
+Parser/RuleGrammarParser.java
+Parser/RuleGrammar.tokens

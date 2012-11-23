@@ -20,7 +20,7 @@ rule:	'rule' ruleName 'when' ruleWhen (NEWLINE)* 'then' ruleThen (NEWLINE)* 'end
 comment
 	:	'//' .* NEWLINE;
 	
-//decl:	'declare' declName NEWLINE (declMember)* 'end';
+decl:	'declare' declName NEWLINE declMember (NEWLINE declMember)* NEWLINE* 'end';
 
 declName
 	:	sub2;
