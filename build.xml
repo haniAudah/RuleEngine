@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<project name="RuleEngine" default="run" basedir=".">
+	<description>
+		This is my first build file
+	</description>
+	
+	<!-- Add external JARs (antlr, ...)  to classpath -->
+	<path id="master-classpath">
+		<fileset dir="external">
+			<include name="*.jar"/>
+		</fileset>
+	</path>
+	
+	<!-- global properties -->
+	<property name="src" location="src"/>
+	<property name="build" location="bin"/>
+	
+	<target name="init">
+		<!-- Create a timestamp -->
+		<tstamp/>
+		<!-- Create a directory for the compiled files -->
+		<mkdir dir="${build}"/>
+	</target>
+	
+	<target name="antlr_build">
+		<copy file="Parser/RuleGrammarLexer.java" tofile="${src}/parser/RuleGrammarLexer.java"/>
+		<copy file="Parser/RuleGrammarParser.java" tofile="${src}/parser/RuleGrammarParser.java"/>
+		<copy file="Parser/RuleGrammar.tokens" tofile="${src}/parser/RuleGrammar.tokens"/>
+	</target>
+	
+	<target name="compile" depends="init, antlr_build" description="Compile the source">
+		<javac srcdir="${src}" destdir="${build}" compiler="org.eclipse.jdt.core.JDTCompilerAdapter" includeantruntime="false">
+			<classpath refid="master-classpath"/>
+		</javac>
+	</target>
+	
+	<target name="clean" description="Clean up">
+		<!-- Delete the ${build} directory -->
+		<delete dir="${build}"/>
+	</target>
+	
+	<target name="run" depends="compile" description="Compile and run the main class">
+		<!-- Use <args> to add arguments to the java command line -->
+		<java classname="engine.EngineTest">
+			<classpath>
+				<pathelement location="${build}"/>
+				<path refid="master-classpath"/>
+			</classpath>
+		</java>
+	</target>
+	
+	<target name="debug" depends="init, antlr_build" description="Compile the source in debug mode">
+		<javac srcdir="${src}" destdir="${build}" compiler="org.eclipse.jdt.core.JDTCompilerAdapter" includeantruntime="false" debug="true">
+			<classpath refid="master-classpath"/>
+		</javac>
+	</target>
+</project>

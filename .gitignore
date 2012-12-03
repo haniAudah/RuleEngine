@@ -7,3 +7,5 @@ bin
 Parser/RuleGrammarLexer.java
 Parser/RuleGrammarParser.java
 Parser/RuleGrammar.tokens
+# Ignore test cases
+test
