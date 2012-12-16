@@ -29,7 +29,7 @@
 	</target>
 	
 	<target name="compile" depends="init, antlr_build" description="Compile the source">
-		<javac srcdir="${src}" destdir="${build}" compiler="org.eclipse.jdt.core.JDTCompilerAdapter" includeantruntime="false">
+		<javac source="1.6" target="1.6" srcdir="${src}" destdir="${build}" compiler="org.eclipse.jdt.core.JDTCompilerAdapter" includeantruntime="false">
 			<classpath refid="master-classpath"/>
 		</javac>
 	</target>

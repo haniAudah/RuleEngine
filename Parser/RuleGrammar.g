@@ -2,6 +2,7 @@ grammar RuleGrammar;
 
 options {
 	language = Java;
+	output = AST;
 	//backtrack = true;
 }
 
@@ -15,14 +16,28 @@ options {
 }
 
 @members {
-	HashMap memory = new HashMap();
+	HashMap classTable = new HashMap();
+	HashMap ruleTable = new HashMap();
+	ArrayList classList = new ArrayList();
 }
 
 prog
-	:	(rule | comment | NEWLINE)+;
+	:	(rule | comment | decl | NEWLINE)+;
 
 rule
-	:	'rule' ruleName NEWLINE 'when' ruleWhen NEWLINE* 'then' ruleThen NEWLINE* 'end' {System.out.println("ANTLR completed successfully!!");};
+	:	'rule' ruleName NEWLINE 'when' ruleWhen NEWLINE* 'then' ruleThen NEWLINE* 'end'
+	 	{
+	 		if (ruleTable.get($ruleName.text) != null)
+	 		{
+	 			System.err.println("Attempting to redefine rule " + $ruleName.text + " at line " + ($rule.start).getLine());
+	 		}
+	 		else
+	 		{
+	 			ruleTable.put($ruleName.text, "bla");
+	 			//TODO Decide on how you want to store the rule
+	 		}
+	 		System.out.println("Rule Found!!");
+ 		};
 
 comment
 	:	'//' .* NEWLINE;
@@ -30,13 +45,30 @@ comment
 //Object declarations
 
 decl
-	:	'declare' declName NEWLINE declMember (NEWLINE declMember)* NEWLINE* 'end';
+scope {
+	HashMap newClass;
+}
+@init {
+	$decl::newClass = new HashMap();
+}
+	:	'declare' declName NEWLINE d=declMember {$decl::newClass.put($d.attr, $d.type);} (NEWLINE d=declMember {$decl::newClass.put($d.attr, $d.type);})* NEWLINE* 'end'
+	 	{
+	 		if (classTable.get($declName.text) != null)
+	 		{
+	 			System.err.println("Attempting to redefine variable " + $declName.text + " at line " + ($decl.start).getLine());
+ 			}
+ 			else
+ 			{
+ 				classTable.put($declName.text, $decl::newClass);
+ 				System.out.println(classTable);
+			}
+	 	};
 
 declName
 	:	sub2;
 
-declMember
-	:	declAttribute ':' declAttributeType;
+declMember returns [String attr, String type]
+	:	declAttribute ':' declAttributeType {$attr = $declAttribute.text; $type = $declAttributeType.text;};
 
 ruleName
 	:	(sub1 | (QUOTE sub1 QUOTE));
@@ -58,7 +90,7 @@ declAttribute
 	:	(~(NEWLINE | 'end'));
 
 declAttributeType
-	:	'String' | 'Integer' | 'int' | 'long' | 'Decimal' | 'Char';
+	:	'String' | 'Integer' | 'int' | 'long' | 'Decimal' | 'Char' | 'double';
 
 ant_class
 	:	identifier;
