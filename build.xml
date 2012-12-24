@@ -29,7 +29,7 @@
 	</target>
 	
 	<target name="compile" depends="init, antlr_build" description="Compile the source">
-		<javac source="1.6" target="1.6" srcdir="${src}" destdir="${build}" compiler="org.eclipse.jdt.core.JDTCompilerAdapter" includeantruntime="false">
+		<javac source="1.6" target="1.6" srcdir="${src}" destdir="${build}" compiler="org.eclipse.jdt.core.JDTCompilerAdapter" includeantruntime="false" nowarn="true">
 			<classpath refid="master-classpath"/>
 		</javac>
 	</target>
@@ -50,7 +50,7 @@
 	</target>
 	
 	<target name="debug" depends="init, antlr_build" description="Compile the source in debug mode">
-		<javac srcdir="${src}" destdir="${build}" compiler="org.eclipse.jdt.core.JDTCompilerAdapter" includeantruntime="false" debug="true">
+		<javac source="1.6" target="1.6" srcdir="${src}" destdir="${build}" compiler="org.eclipse.jdt.core.JDTCompilerAdapter" includeantruntime="false" debug="true">
 			<classpath refid="master-classpath"/>
 		</javac>
 	</target>

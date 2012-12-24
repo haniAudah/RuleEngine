@@ -6,6 +6,12 @@ options {
 	//backtrack = true;
 }
 
+tokens {
+	RULENAME;
+	RULEWHEN;
+	OBJECT;
+}
+
 @header {
 	package parser;
 	import java.util.HashMap;
@@ -16,14 +22,16 @@ options {
 }
 
 @members {
-	HashMap classTable = new HashMap();
-	HashMap ruleTable = new HashMap();
-	ArrayList classList = new ArrayList();
+	HashMap<String, HashMap<String, String>> classTable = new HashMap<String, HashMap<String, String>>();
+	HashMap<String, String> ruleTable = new HashMap<String, String>();
+	//ArrayList classList = new ArrayList();
 }
 
 prog
-	:	(rule | comment | decl | NEWLINE)+;
-
+	:	(rule | comment | decl ! | NEWLINE !)+;
+/*
+TODO: Explain language syntax briefly.
+*/
 rule
 	:	'rule' ruleName NEWLINE 'when' ruleWhen NEWLINE* 'then' ruleThen NEWLINE* 'end'
 	 	{
@@ -36,8 +44,7 @@ rule
 	 			ruleTable.put($ruleName.text, "bla");
 	 			//TODO Decide on how you want to store the rule
 	 		}
-	 		System.out.println("Rule Found!!");
- 		};
+ 		} -> ^('rule' ruleName ruleWhen 'then');
 
 comment
 	:	'//' .* NEWLINE;
@@ -55,14 +62,14 @@ scope {
 	 	{
 	 		if (classTable.get($declName.text) != null)
 	 		{
-	 			System.err.println("Attempting to redefine variable " + $declName.text + " at line " + ($decl.start).getLine());
+	 			System.err.println("Attempting to redefine class " + $declName.text + " at line " + ($decl.start).getLine());
  			}
  			else
  			{
  				classTable.put($declName.text, $decl::newClass);
  				System.out.println(classTable);
 			}
-	 	};
+	 	}; //The AST doesn't include declarations, everything that needs to be done is done while reading 'declare' statements.
 
 declName
 	:	sub2;
@@ -71,11 +78,22 @@ declMember returns [String attr, String type]
 	:	declAttribute ':' declAttributeType {$attr = $declAttribute.text; $type = $declAttributeType.text;};
 
 ruleName
-	:	(sub1 | (QUOTE sub1 QUOTE));
+	:	(sub1 | (QUOTE sub1 QUOTE)) -> ^(RULENAME sub1);
 
 ruleWhen
-	:	('not' | (identifier ':'))? ant_class '(' pattern ')' (NEWLINE | ';')
-		(('and' | 'or' | 'not') ant_class '(' pattern ')' (NEWLINE | ';'))*;
+scope {
+	String declName;
+}
+	//The first ruleWhen cannot be preceded by an (and, or)
+	:	NEWLINE* ruleWhen1 ruleWhenK* -> ^(RULEWHEN ruleWhen1 ruleWhenK*);
+
+ruleWhen1
+	//TODO: Fix identifier binding
+	:	('not' | (identifier ':'))? ant_class {$ruleWhen::declName = $ant_class.text;} '(' pattern ')' (NEWLINE | ';') -> ^(ant_class pattern);
+
+ruleWhenK
+	//TODO: Allow idenitifer binding
+	:	(('and' | 'or' | 'not')? ant_class {$ruleWhen::declName = $ant_class.text;} '(' pattern ')' (NEWLINE | ';')) -> ^(ant_class pattern);
 
 ruleThen
 	:	sub1 (NEWLINE sub1)*;
@@ -98,16 +116,48 @@ ant_class
 //List all possible logical patterns that would need to be matched, in increasing order of precedence.
 
 pattern
-	:	expr_or ('||' expr_or)*;
+scope {
+	boolean has;
+}
+@init {
+	$pattern::has = false;
+}
+	:	expr_or ('||' expr_or {$pattern::has = true;})*
+	->	{$pattern::has}? ^('||' expr_or+)
+	->	expr_or;
 
 expr_or
-	:	expr_and ('&&' expr_and)*;
+scope {
+	boolean has;
+}
+@init {
+	$expr_or::has = false;
+}
+	:	expr_and ('&&' expr_and {$expr_or::has = true;})*
+	->	{$expr_or::has}? ^('&&' expr_and+)
+	->	expr_and;
 
 expr_and
-	:	expr_eq_neq (('==' | '!=') expr_eq_neq)*;
+scope {
+	boolean hasEq;
+}
+@init {
+	$expr_and::hasEq = false;
+}
+	:	expr_eq_neq (EQUALITY expr_eq_neq {$expr_and::hasEq = true;})*
+	->	{$expr_and::hasEq}? ^(EQUALITY expr_eq_neq+)
+	->	expr_eq_neq;
 
 expr_eq_neq
-	:	expr_comp (('>=' | '<=' | '>' | '<') expr_comp)*;
+scope {
+	boolean has;
+}
+@init {
+	$expr_eq_neq::has = false;
+}
+	:	expr_comp (INEQUALITY expr_comp {$expr_eq_neq::has = true;})*
+	->	{$expr_eq_neq::has}? ^(INEQUALITY expr_comp+)
+	->	expr_comp;
 
 //List all algebraic expressions that might need to be evaluated in the above patterns, in increasing order of precedence.
 
@@ -124,10 +174,18 @@ expr_not
 	:	('-' | '+')? expr_unary;
 
 expr_unary
-	:	(identifier ':')? identifier
-	|	'(' pattern ')';
+	:	((m1=memberIdentifier ':')? m2=memberIdentifier
+	{
+	 	if (((HashMap)classTable.get($ruleWhen::declName)).get($m2.text) == null)
+	 		System.err.println("The variable " + $m2.text + " is not a member of " + $ruleWhen::declName + " and was not previously bound.");
+	}
+	| INT | '(' pattern ')');
 
 identifier
+	:	ID (ID | INT)*;
+
+memberIdentifier
+//TODO: Do you need this?
 	:	ID (ID | INT)*;
 
 INT
@@ -140,3 +198,7 @@ WS
 	:	(' ' | '\t')+ {skip();} ;
 QUOTE
 	:	'"';
+EQUALITY
+	:	('==' | '!=');
+INEQUALITY
+	:	('>=' | '<=' | '>' | '<');

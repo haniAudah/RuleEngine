@@ -1,4 +1,4 @@
-// $ANTLR 3.3 Nov 30, 2010 12:50:56 C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g 2012-12-16 19:35:27
+// $ANTLR 3.3 Nov 30, 2010 12:50:56 C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g 2012-12-24 20:12:38
 
 	package parser;
 
@@ -10,11 +10,6 @@ import java.util.ArrayList;
 
 public class RuleGrammarLexer extends Lexer {
     public static final int EOF=-1;
-    public static final int T__9=9;
-    public static final int T__10=10;
-    public static final int T__11=11;
-    public static final int T__12=12;
-    public static final int T__13=13;
     public static final int T__14=14;
     public static final int T__15=15;
     public static final int T__16=16;
@@ -42,12 +37,16 @@ public class RuleGrammarLexer extends Lexer {
     public static final int T__38=38;
     public static final int T__39=39;
     public static final int T__40=40;
-    public static final int T__41=41;
-    public static final int NEWLINE=4;
-    public static final int QUOTE=5;
-    public static final int ID=6;
-    public static final int INT=7;
-    public static final int WS=8;
+    public static final int RULENAME=4;
+    public static final int RULEWHEN=5;
+    public static final int OBJECT=6;
+    public static final int NEWLINE=7;
+    public static final int QUOTE=8;
+    public static final int EQUALITY=9;
+    public static final int INEQUALITY=10;
+    public static final int INT=11;
+    public static final int ID=12;
+    public static final int WS=13;
 
     // delegates
     // delegators
@@ -62,120 +61,15 @@ public class RuleGrammarLexer extends Lexer {
     }
     public String getGrammarFileName() { return "C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g"; }
 
-    // $ANTLR start "T__9"
-    public final void mT__9() throws RecognitionException {
-        try {
-            int _type = T__9;
-            int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:11:6: ( 'rule' )
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:11:8: 'rule'
-            {
-            match("rule"); 
-
-
-            }
-
-            state.type = _type;
-            state.channel = _channel;
-        }
-        finally {
-        }
-    }
-    // $ANTLR end "T__9"
-
-    // $ANTLR start "T__10"
-    public final void mT__10() throws RecognitionException {
-        try {
-            int _type = T__10;
-            int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:12:7: ( 'when' )
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:12:9: 'when'
-            {
-            match("when"); 
-
-
-            }
-
-            state.type = _type;
-            state.channel = _channel;
-        }
-        finally {
-        }
-    }
-    // $ANTLR end "T__10"
-
-    // $ANTLR start "T__11"
-    public final void mT__11() throws RecognitionException {
-        try {
-            int _type = T__11;
-            int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:13:7: ( 'then' )
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:13:9: 'then'
-            {
-            match("then"); 
-
-
-            }
-
-            state.type = _type;
-            state.channel = _channel;
-        }
-        finally {
-        }
-    }
-    // $ANTLR end "T__11"
-
-    // $ANTLR start "T__12"
-    public final void mT__12() throws RecognitionException {
-        try {
-            int _type = T__12;
-            int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:14:7: ( 'end' )
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:14:9: 'end'
-            {
-            match("end"); 
-
-
-            }
-
-            state.type = _type;
-            state.channel = _channel;
-        }
-        finally {
-        }
-    }
-    // $ANTLR end "T__12"
-
-    // $ANTLR start "T__13"
-    public final void mT__13() throws RecognitionException {
-        try {
-            int _type = T__13;
-            int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:15:7: ( '//' )
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:15:9: '//'
-            {
-            match("//"); 
-
-
-            }
-
-            state.type = _type;
-            state.channel = _channel;
-        }
-        finally {
-        }
-    }
-    // $ANTLR end "T__13"
-
     // $ANTLR start "T__14"
     public final void mT__14() throws RecognitionException {
         try {
             int _type = T__14;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:16:7: ( 'declare' )
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:16:9: 'declare'
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:11:7: ( 'rule' )
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:11:9: 'rule'
             {
-            match("declare"); 
+            match("rule"); 
 
 
             }
@@ -193,10 +87,11 @@ public class RuleGrammarLexer extends Lexer {
         try {
             int _type = T__15;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:17:7: ( ':' )
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:17:9: ':'
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:12:7: ( 'when' )
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:12:9: 'when'
             {
-            match(':'); 
+            match("when"); 
+
 
             }
 
@@ -213,10 +108,10 @@ public class RuleGrammarLexer extends Lexer {
         try {
             int _type = T__16;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:18:7: ( 'not' )
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:18:9: 'not'
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:13:7: ( 'then' )
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:13:9: 'then'
             {
-            match("not"); 
+            match("then"); 
 
 
             }
@@ -234,10 +129,11 @@ public class RuleGrammarLexer extends Lexer {
         try {
             int _type = T__17;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:19:7: ( '(' )
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:19:9: '('
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:14:7: ( 'end' )
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:14:9: 'end'
             {
-            match('('); 
+            match("end"); 
+
 
             }
 
@@ -254,10 +150,11 @@ public class RuleGrammarLexer extends Lexer {
         try {
             int _type = T__18;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:20:7: ( ')' )
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:20:9: ')'
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:15:7: ( '//' )
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:15:9: '//'
             {
-            match(')'); 
+            match("//"); 
+
 
             }
 
@@ -274,10 +171,11 @@ public class RuleGrammarLexer extends Lexer {
         try {
             int _type = T__19;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:21:7: ( ';' )
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:21:9: ';'
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:16:7: ( 'declare' )
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:16:9: 'declare'
             {
-            match(';'); 
+            match("declare"); 
+
 
             }
 
@@ -294,11 +192,10 @@ public class RuleGrammarLexer extends Lexer {
         try {
             int _type = T__20;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:22:7: ( 'and' )
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:22:9: 'and'
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:17:7: ( ':' )
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:17:9: ':'
             {
-            match("and"); 
-
+            match(':'); 
 
             }
 
@@ -315,10 +212,10 @@ public class RuleGrammarLexer extends Lexer {
         try {
             int _type = T__21;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:23:7: ( 'or' )
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:23:9: 'or'
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:18:7: ( 'not' )
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:18:9: 'not'
             {
-            match("or"); 
+            match("not"); 
 
 
             }
@@ -336,11 +233,10 @@ public class RuleGrammarLexer extends Lexer {
         try {
             int _type = T__22;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:24:7: ( 'String' )
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:24:9: 'String'
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:19:7: ( '(' )
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:19:9: '('
             {
-            match("String"); 
-
+            match('('); 
 
             }
 
@@ -357,11 +253,10 @@ public class RuleGrammarLexer extends Lexer {
         try {
             int _type = T__23;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:25:7: ( 'Integer' )
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:25:9: 'Integer'
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:20:7: ( ')' )
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:20:9: ')'
             {
-            match("Integer"); 
-
+            match(')'); 
 
             }
 
@@ -378,11 +273,10 @@ public class RuleGrammarLexer extends Lexer {
         try {
             int _type = T__24;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:26:7: ( 'int' )
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:26:9: 'int'
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:21:7: ( ';' )
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:21:9: ';'
             {
-            match("int"); 
-
+            match(';'); 
 
             }
 
@@ -399,10 +293,10 @@ public class RuleGrammarLexer extends Lexer {
         try {
             int _type = T__25;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:27:7: ( 'long' )
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:27:9: 'long'
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:22:7: ( 'and' )
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:22:9: 'and'
             {
-            match("long"); 
+            match("and"); 
 
 
             }
@@ -420,10 +314,10 @@ public class RuleGrammarLexer extends Lexer {
         try {
             int _type = T__26;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:28:7: ( 'Decimal' )
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:28:9: 'Decimal'
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:23:7: ( 'or' )
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:23:9: 'or'
             {
-            match("Decimal"); 
+            match("or"); 
 
 
             }
@@ -441,10 +335,10 @@ public class RuleGrammarLexer extends Lexer {
         try {
             int _type = T__27;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:29:7: ( 'Char' )
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:29:9: 'Char'
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:24:7: ( 'String' )
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:24:9: 'String'
             {
-            match("Char"); 
+            match("String"); 
 
 
             }
@@ -462,10 +356,10 @@ public class RuleGrammarLexer extends Lexer {
         try {
             int _type = T__28;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:30:7: ( 'double' )
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:30:9: 'double'
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:25:7: ( 'Integer' )
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:25:9: 'Integer'
             {
-            match("double"); 
+            match("Integer"); 
 
 
             }
@@ -483,10 +377,10 @@ public class RuleGrammarLexer extends Lexer {
         try {
             int _type = T__29;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:31:7: ( '||' )
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:31:9: '||'
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:26:7: ( 'int' )
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:26:9: 'int'
             {
-            match("||"); 
+            match("int"); 
 
 
             }
@@ -504,10 +398,10 @@ public class RuleGrammarLexer extends Lexer {
         try {
             int _type = T__30;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:32:7: ( '&&' )
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:32:9: '&&'
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:27:7: ( 'long' )
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:27:9: 'long'
             {
-            match("&&"); 
+            match("long"); 
 
 
             }
@@ -525,10 +419,10 @@ public class RuleGrammarLexer extends Lexer {
         try {
             int _type = T__31;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:33:7: ( '==' )
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:33:9: '=='
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:28:7: ( 'Decimal' )
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:28:9: 'Decimal'
             {
-            match("=="); 
+            match("Decimal"); 
 
 
             }
@@ -546,10 +440,10 @@ public class RuleGrammarLexer extends Lexer {
         try {
             int _type = T__32;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:34:7: ( '!=' )
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:34:9: '!='
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:29:7: ( 'Char' )
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:29:9: 'Char'
             {
-            match("!="); 
+            match("Char"); 
 
 
             }
@@ -567,10 +461,10 @@ public class RuleGrammarLexer extends Lexer {
         try {
             int _type = T__33;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:35:7: ( '>=' )
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:35:9: '>='
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:30:7: ( 'double' )
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:30:9: 'double'
             {
-            match(">="); 
+            match("double"); 
 
 
             }
@@ -588,10 +482,10 @@ public class RuleGrammarLexer extends Lexer {
         try {
             int _type = T__34;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:36:7: ( '<=' )
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:36:9: '<='
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:31:7: ( '||' )
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:31:9: '||'
             {
-            match("<="); 
+            match("||"); 
 
 
             }
@@ -609,10 +503,11 @@ public class RuleGrammarLexer extends Lexer {
         try {
             int _type = T__35;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:37:7: ( '>' )
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:37:9: '>'
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:32:7: ( '&&' )
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:32:9: '&&'
             {
-            match('>'); 
+            match("&&"); 
+
 
             }
 
@@ -629,10 +524,10 @@ public class RuleGrammarLexer extends Lexer {
         try {
             int _type = T__36;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:38:7: ( '<' )
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:38:9: '<'
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:33:7: ( '+' )
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:33:9: '+'
             {
-            match('<'); 
+            match('+'); 
 
             }
 
@@ -649,10 +544,10 @@ public class RuleGrammarLexer extends Lexer {
         try {
             int _type = T__37;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:39:7: ( '+' )
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:39:9: '+'
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:34:7: ( '-' )
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:34:9: '-'
             {
-            match('+'); 
+            match('-'); 
 
             }
 
@@ -669,10 +564,10 @@ public class RuleGrammarLexer extends Lexer {
         try {
             int _type = T__38;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:40:7: ( '-' )
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:40:9: '-'
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:35:7: ( '*' )
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:35:9: '*'
             {
-            match('-'); 
+            match('*'); 
 
             }
 
@@ -689,10 +584,10 @@ public class RuleGrammarLexer extends Lexer {
         try {
             int _type = T__39;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:41:7: ( '*' )
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:41:9: '*'
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:36:7: ( '/' )
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:36:9: '/'
             {
-            match('*'); 
+            match('/'); 
 
             }
 
@@ -709,28 +604,8 @@ public class RuleGrammarLexer extends Lexer {
         try {
             int _type = T__40;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:42:7: ( '/' )
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:42:9: '/'
-            {
-            match('/'); 
-
-            }
-
-            state.type = _type;
-            state.channel = _channel;
-        }
-        finally {
-        }
-    }
-    // $ANTLR end "T__40"
-
-    // $ANTLR start "T__41"
-    public final void mT__41() throws RecognitionException {
-        try {
-            int _type = T__41;
-            int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:43:7: ( '!' )
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:43:9: '!'
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:37:7: ( '!' )
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:37:9: '!'
             {
             match('!'); 
 
@@ -742,17 +617,17 @@ public class RuleGrammarLexer extends Lexer {
         finally {
         }
     }
-    // $ANTLR end "T__41"
+    // $ANTLR end "T__40"
 
     // $ANTLR start "INT"
     public final void mINT() throws RecognitionException {
         try {
             int _type = INT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:134:2: ( ( '0' .. '9' )+ )
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:134:4: ( '0' .. '9' )+
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:192:2: ( ( '0' .. '9' )+ )
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:192:4: ( '0' .. '9' )+
             {
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:134:4: ( '0' .. '9' )+
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:192:4: ( '0' .. '9' )+
             int cnt1=0;
             loop1:
             do {
@@ -766,7 +641,7 @@ public class RuleGrammarLexer extends Lexer {
 
                 switch (alt1) {
             	case 1 :
-            	    // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:134:4: '0' .. '9'
+            	    // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:192:4: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -798,10 +673,10 @@ public class RuleGrammarLexer extends Lexer {
         try {
             int _type = NEWLINE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:136:2: ( ( '\\r' )? '\\n' )
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:136:4: ( '\\r' )? '\\n'
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:194:2: ( ( '\\r' )? '\\n' )
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:194:4: ( '\\r' )? '\\n'
             {
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:136:4: ( '\\r' )?
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:194:4: ( '\\r' )?
             int alt2=2;
             int LA2_0 = input.LA(1);
 
@@ -810,7 +685,7 @@ public class RuleGrammarLexer extends Lexer {
             }
             switch (alt2) {
                 case 1 :
-                    // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:136:4: '\\r'
+                    // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:194:4: '\\r'
                     {
                     match('\r'); 
 
@@ -836,10 +711,10 @@ public class RuleGrammarLexer extends Lexer {
         try {
             int _type = ID;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:138:2: ( ( 'a' .. 'z' | 'A' .. 'Z' )+ )
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:138:6: ( 'a' .. 'z' | 'A' .. 'Z' )+
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:196:2: ( ( 'a' .. 'z' | 'A' .. 'Z' )+ )
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:196:6: ( 'a' .. 'z' | 'A' .. 'Z' )+
             {
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:138:6: ( 'a' .. 'z' | 'A' .. 'Z' )+
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:196:6: ( 'a' .. 'z' | 'A' .. 'Z' )+
             int cnt3=0;
             loop3:
             do {
@@ -893,10 +768,10 @@ public class RuleGrammarLexer extends Lexer {
         try {
             int _type = WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:140:2: ( ( ' ' | '\\t' )+ )
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:140:4: ( ' ' | '\\t' )+
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:198:2: ( ( ' ' | '\\t' )+ )
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:198:4: ( ' ' | '\\t' )+
             {
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:140:4: ( ' ' | '\\t' )+
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:198:4: ( ' ' | '\\t' )+
             int cnt4=0;
             loop4:
             do {
@@ -951,8 +826,8 @@ public class RuleGrammarLexer extends Lexer {
         try {
             int _type = QUOTE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:142:2: ( '\"' )
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:142:4: '\"'
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:200:2: ( '\"' )
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:200:4: '\"'
             {
             match('\"'); 
 
@@ -966,274 +841,382 @@ public class RuleGrammarLexer extends Lexer {
     }
     // $ANTLR end "QUOTE"
 
+    // $ANTLR start "EQUALITY"
+    public final void mEQUALITY() throws RecognitionException {
+        try {
+            int _type = EQUALITY;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:202:2: ( ( '==' | '!=' ) )
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:202:4: ( '==' | '!=' )
+            {
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:202:4: ( '==' | '!=' )
+            int alt5=2;
+            int LA5_0 = input.LA(1);
+
+            if ( (LA5_0=='=') ) {
+                alt5=1;
+            }
+            else if ( (LA5_0=='!') ) {
+                alt5=2;
+            }
+            else {
+                NoViableAltException nvae =
+                    new NoViableAltException("", 5, 0, input);
+
+                throw nvae;
+            }
+            switch (alt5) {
+                case 1 :
+                    // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:202:5: '=='
+                    {
+                    match("=="); 
+
+
+                    }
+                    break;
+                case 2 :
+                    // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:202:12: '!='
+                    {
+                    match("!="); 
+
+
+                    }
+                    break;
+
+            }
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "EQUALITY"
+
+    // $ANTLR start "INEQUALITY"
+    public final void mINEQUALITY() throws RecognitionException {
+        try {
+            int _type = INEQUALITY;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:204:2: ( ( '>=' | '<=' | '>' | '<' ) )
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:204:4: ( '>=' | '<=' | '>' | '<' )
+            {
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:204:4: ( '>=' | '<=' | '>' | '<' )
+            int alt6=4;
+            int LA6_0 = input.LA(1);
+
+            if ( (LA6_0=='>') ) {
+                int LA6_1 = input.LA(2);
+
+                if ( (LA6_1=='=') ) {
+                    alt6=1;
+                }
+                else {
+                    alt6=3;}
+            }
+            else if ( (LA6_0=='<') ) {
+                int LA6_2 = input.LA(2);
+
+                if ( (LA6_2=='=') ) {
+                    alt6=2;
+                }
+                else {
+                    alt6=4;}
+            }
+            else {
+                NoViableAltException nvae =
+                    new NoViableAltException("", 6, 0, input);
+
+                throw nvae;
+            }
+            switch (alt6) {
+                case 1 :
+                    // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:204:5: '>='
+                    {
+                    match(">="); 
+
+
+                    }
+                    break;
+                case 2 :
+                    // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:204:12: '<='
+                    {
+                    match("<="); 
+
+
+                    }
+                    break;
+                case 3 :
+                    // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:204:19: '>'
+                    {
+                    match('>'); 
+
+                    }
+                    break;
+                case 4 :
+                    // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:204:25: '<'
+                    {
+                    match('<'); 
+
+                    }
+                    break;
+
+            }
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "INEQUALITY"
+
     public void mTokens() throws RecognitionException {
-        // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:1:8: ( T__9 | T__10 | T__11 | T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | INT | NEWLINE | ID | WS | QUOTE )
-        int alt5=38;
-        alt5 = dfa5.predict(input);
-        switch (alt5) {
+        // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:1:8: ( T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | INT | NEWLINE | ID | WS | QUOTE | EQUALITY | INEQUALITY )
+        int alt7=34;
+        alt7 = dfa7.predict(input);
+        switch (alt7) {
             case 1 :
-                // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:1:10: T__9
-                {
-                mT__9(); 
-
-                }
-                break;
-            case 2 :
-                // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:1:15: T__10
-                {
-                mT__10(); 
-
-                }
-                break;
-            case 3 :
-                // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:1:21: T__11
-                {
-                mT__11(); 
-
-                }
-                break;
-            case 4 :
-                // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:1:27: T__12
-                {
-                mT__12(); 
-
-                }
-                break;
-            case 5 :
-                // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:1:33: T__13
-                {
-                mT__13(); 
-
-                }
-                break;
-            case 6 :
-                // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:1:39: T__14
+                // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:1:10: T__14
                 {
                 mT__14(); 
 
                 }
                 break;
-            case 7 :
-                // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:1:45: T__15
+            case 2 :
+                // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:1:16: T__15
                 {
                 mT__15(); 
 
                 }
                 break;
-            case 8 :
-                // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:1:51: T__16
+            case 3 :
+                // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:1:22: T__16
                 {
                 mT__16(); 
 
                 }
                 break;
-            case 9 :
-                // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:1:57: T__17
+            case 4 :
+                // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:1:28: T__17
                 {
                 mT__17(); 
 
                 }
                 break;
-            case 10 :
-                // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:1:63: T__18
+            case 5 :
+                // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:1:34: T__18
                 {
                 mT__18(); 
 
                 }
                 break;
-            case 11 :
-                // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:1:69: T__19
+            case 6 :
+                // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:1:40: T__19
                 {
                 mT__19(); 
 
                 }
                 break;
-            case 12 :
-                // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:1:75: T__20
+            case 7 :
+                // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:1:46: T__20
                 {
                 mT__20(); 
 
                 }
                 break;
-            case 13 :
-                // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:1:81: T__21
+            case 8 :
+                // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:1:52: T__21
                 {
                 mT__21(); 
 
                 }
                 break;
-            case 14 :
-                // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:1:87: T__22
+            case 9 :
+                // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:1:58: T__22
                 {
                 mT__22(); 
 
                 }
                 break;
-            case 15 :
-                // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:1:93: T__23
+            case 10 :
+                // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:1:64: T__23
                 {
                 mT__23(); 
 
                 }
                 break;
-            case 16 :
-                // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:1:99: T__24
+            case 11 :
+                // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:1:70: T__24
                 {
                 mT__24(); 
 
                 }
                 break;
-            case 17 :
-                // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:1:105: T__25
+            case 12 :
+                // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:1:76: T__25
                 {
                 mT__25(); 
 
                 }
                 break;
-            case 18 :
-                // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:1:111: T__26
+            case 13 :
+                // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:1:82: T__26
                 {
                 mT__26(); 
 
                 }
                 break;
-            case 19 :
-                // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:1:117: T__27
+            case 14 :
+                // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:1:88: T__27
                 {
                 mT__27(); 
 
                 }
                 break;
-            case 20 :
-                // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:1:123: T__28
+            case 15 :
+                // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:1:94: T__28
                 {
                 mT__28(); 
 
                 }
                 break;
-            case 21 :
-                // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:1:129: T__29
+            case 16 :
+                // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:1:100: T__29
                 {
                 mT__29(); 
 
                 }
                 break;
-            case 22 :
-                // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:1:135: T__30
+            case 17 :
+                // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:1:106: T__30
                 {
                 mT__30(); 
 
                 }
                 break;
-            case 23 :
-                // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:1:141: T__31
+            case 18 :
+                // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:1:112: T__31
                 {
                 mT__31(); 
 
                 }
                 break;
-            case 24 :
-                // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:1:147: T__32
+            case 19 :
+                // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:1:118: T__32
                 {
                 mT__32(); 
 
                 }
                 break;
-            case 25 :
-                // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:1:153: T__33
+            case 20 :
+                // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:1:124: T__33
                 {
                 mT__33(); 
 
                 }
                 break;
-            case 26 :
-                // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:1:159: T__34
+            case 21 :
+                // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:1:130: T__34
                 {
                 mT__34(); 
 
                 }
                 break;
-            case 27 :
-                // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:1:165: T__35
+            case 22 :
+                // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:1:136: T__35
                 {
                 mT__35(); 
 
                 }
                 break;
-            case 28 :
-                // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:1:171: T__36
+            case 23 :
+                // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:1:142: T__36
                 {
                 mT__36(); 
 
                 }
                 break;
-            case 29 :
-                // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:1:177: T__37
+            case 24 :
+                // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:1:148: T__37
                 {
                 mT__37(); 
 
                 }
                 break;
-            case 30 :
-                // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:1:183: T__38
+            case 25 :
+                // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:1:154: T__38
                 {
                 mT__38(); 
 
                 }
                 break;
-            case 31 :
-                // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:1:189: T__39
+            case 26 :
+                // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:1:160: T__39
                 {
                 mT__39(); 
 
                 }
                 break;
-            case 32 :
-                // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:1:195: T__40
+            case 27 :
+                // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:1:166: T__40
                 {
                 mT__40(); 
 
                 }
                 break;
-            case 33 :
-                // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:1:201: T__41
-                {
-                mT__41(); 
-
-                }
-                break;
-            case 34 :
-                // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:1:207: INT
+            case 28 :
+                // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:1:172: INT
                 {
                 mINT(); 
 
                 }
                 break;
-            case 35 :
-                // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:1:211: NEWLINE
+            case 29 :
+                // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:1:176: NEWLINE
                 {
                 mNEWLINE(); 
 
                 }
                 break;
-            case 36 :
-                // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:1:219: ID
+            case 30 :
+                // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:1:184: ID
                 {
                 mID(); 
 
                 }
                 break;
-            case 37 :
-                // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:1:222: WS
+            case 31 :
+                // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:1:187: WS
                 {
                 mWS(); 
 
                 }
                 break;
-            case 38 :
-                // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:1:225: QUOTE
+            case 32 :
+                // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:1:190: QUOTE
                 {
                 mQUOTE(); 
+
+                }
+                break;
+            case 33 :
+                // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:1:196: EQUALITY
+                {
+                mEQUALITY(); 
+
+                }
+                break;
+            case 34 :
+                // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:1:205: INEQUALITY
+                {
+                mINEQUALITY(); 
 
                 }
                 break;
@@ -1243,59 +1226,59 @@ public class RuleGrammarLexer extends Lexer {
     }
 
 
-    protected DFA5 dfa5 = new DFA5(this);
-    static final String DFA5_eotS =
-        "\1\uffff\4\37\1\47\1\37\1\uffff\1\37\3\uffff\10\37\3\uffff\1\64"+
-        "\1\66\1\70\10\uffff\4\37\2\uffff\4\37\1\101\6\37\6\uffff\3\37\1"+
-        "\113\2\37\1\116\1\117\1\uffff\2\37\1\122\3\37\1\126\1\127\1\130"+
-        "\1\uffff\2\37\2\uffff\2\37\1\uffff\1\135\1\37\1\137\3\uffff\4\37"+
-        "\1\uffff\1\37\1\uffff\1\37\1\146\1\147\2\37\1\152\2\uffff\1\153"+
-        "\1\154\3\uffff";
-    static final String DFA5_eofS =
-        "\155\uffff";
-    static final String DFA5_minS =
+    protected DFA7 dfa7 = new DFA7(this);
+    static final String DFA7_eotS =
+        "\1\uffff\4\34\1\46\1\34\1\uffff\1\34\3\uffff\10\34\5\uffff\1\62"+
+        "\7\uffff\4\34\2\uffff\4\34\1\73\6\34\1\uffff\3\34\1\105\2\34\1\110"+
+        "\1\111\1\uffff\2\34\1\114\3\34\1\120\1\121\1\122\1\uffff\2\34\2"+
+        "\uffff\2\34\1\uffff\1\127\1\34\1\131\3\uffff\4\34\1\uffff\1\34\1"+
+        "\uffff\1\34\1\140\1\141\2\34\1\144\2\uffff\1\145\1\146\3\uffff";
+    static final String DFA7_eofS =
+        "\147\uffff";
+    static final String DFA7_minS =
         "\1\11\1\165\2\150\1\156\1\57\1\145\1\uffff\1\157\3\uffff\1\156"+
-        "\1\162\1\164\2\156\1\157\1\145\1\150\3\uffff\3\75\10\uffff\1\154"+
+        "\1\162\1\164\2\156\1\157\1\145\1\150\5\uffff\1\75\7\uffff\1\154"+
         "\2\145\1\144\2\uffff\1\143\1\165\1\164\1\144\1\101\1\162\2\164\1"+
-        "\156\1\143\1\141\6\uffff\1\145\2\156\1\101\1\154\1\142\2\101\1\uffff"+
+        "\156\1\143\1\141\1\uffff\1\145\2\156\1\101\1\154\1\142\2\101\1\uffff"+
         "\1\151\1\145\1\101\1\147\1\151\1\162\3\101\1\uffff\1\141\1\154\2"+
         "\uffff\1\156\1\147\1\uffff\1\101\1\155\1\101\3\uffff\1\162\1\145"+
         "\1\147\1\145\1\uffff\1\141\1\uffff\1\145\2\101\1\162\1\154\1\101"+
         "\2\uffff\2\101\3\uffff";
-    static final String DFA5_maxS =
+    static final String DFA7_maxS =
         "\1\174\1\165\2\150\1\156\1\57\1\157\1\uffff\1\157\3\uffff\1\156"+
-        "\1\162\1\164\2\156\1\157\1\145\1\150\3\uffff\3\75\10\uffff\1\154"+
+        "\1\162\1\164\2\156\1\157\1\145\1\150\5\uffff\1\75\7\uffff\1\154"+
         "\2\145\1\144\2\uffff\1\143\1\165\1\164\1\144\1\172\1\162\2\164\1"+
-        "\156\1\143\1\141\6\uffff\1\145\2\156\1\172\1\154\1\142\2\172\1\uffff"+
+        "\156\1\143\1\141\1\uffff\1\145\2\156\1\172\1\154\1\142\2\172\1\uffff"+
         "\1\151\1\145\1\172\1\147\1\151\1\162\3\172\1\uffff\1\141\1\154\2"+
         "\uffff\1\156\1\147\1\uffff\1\172\1\155\1\172\3\uffff\1\162\1\145"+
         "\1\147\1\145\1\uffff\1\141\1\uffff\1\145\2\172\1\162\1\154\1\172"+
         "\2\uffff\2\172\3\uffff";
-    static final String DFA5_acceptS =
-        "\7\uffff\1\7\1\uffff\1\11\1\12\1\13\10\uffff\1\25\1\26\1\27\3\uffff"+
-        "\1\35\1\36\1\37\1\42\1\43\1\44\1\45\1\46\4\uffff\1\5\1\40\13\uffff"+
-        "\1\30\1\41\1\31\1\33\1\32\1\34\10\uffff\1\15\11\uffff\1\4\2\uffff"+
-        "\1\10\1\14\2\uffff\1\20\3\uffff\1\1\1\2\1\3\4\uffff\1\21\1\uffff"+
-        "\1\23\6\uffff\1\24\1\16\2\uffff\1\6\1\17\1\22";
-    static final String DFA5_specialS =
-        "\155\uffff}>";
-    static final String[] DFA5_transitionS = {
-            "\1\40\1\36\2\uffff\1\36\22\uffff\1\40\1\27\1\41\3\uffff\1\25"+
-            "\1\uffff\1\11\1\12\1\34\1\32\1\uffff\1\33\1\uffff\1\5\12\35"+
-            "\1\7\1\13\1\31\1\26\1\30\2\uffff\2\37\1\23\1\22\4\37\1\17\11"+
-            "\37\1\16\7\37\6\uffff\1\14\2\37\1\6\1\4\3\37\1\20\2\37\1\21"+
-            "\1\37\1\10\1\15\2\37\1\1\1\37\1\3\2\37\1\2\3\37\1\uffff\1\24",
+    static final String DFA7_acceptS =
+        "\7\uffff\1\7\1\uffff\1\11\1\12\1\13\10\uffff\1\25\1\26\1\27\1\30"+
+        "\1\31\1\uffff\1\34\1\35\1\36\1\37\1\40\1\41\1\42\4\uffff\1\5\1\32"+
+        "\13\uffff\1\33\10\uffff\1\15\11\uffff\1\4\2\uffff\1\10\1\14\2\uffff"+
+        "\1\20\3\uffff\1\1\1\2\1\3\4\uffff\1\21\1\uffff\1\23\6\uffff\1\24"+
+        "\1\16\2\uffff\1\6\1\17\1\22";
+    static final String DFA7_specialS =
+        "\147\uffff}>";
+    static final String[] DFA7_transitionS = {
+            "\1\35\1\33\2\uffff\1\33\22\uffff\1\35\1\31\1\36\3\uffff\1\25"+
+            "\1\uffff\1\11\1\12\1\30\1\26\1\uffff\1\27\1\uffff\1\5\12\32"+
+            "\1\7\1\13\1\40\1\37\1\40\2\uffff\2\34\1\23\1\22\4\34\1\17\11"+
+            "\34\1\16\7\34\6\uffff\1\14\2\34\1\6\1\4\3\34\1\20\2\34\1\21"+
+            "\1\34\1\10\1\15\2\34\1\1\1\34\1\3\2\34\1\2\3\34\1\uffff\1\24",
+            "\1\41",
             "\1\42",
             "\1\43",
             "\1\44",
             "\1\45",
-            "\1\46",
-            "\1\50\11\uffff\1\51",
+            "\1\47\11\uffff\1\50",
+            "",
+            "\1\51",
+            "",
+            "",
             "",
             "\1\52",
-            "",
-            "",
-            "",
             "\1\53",
             "\1\54",
             "\1\55",
@@ -1303,129 +1286,122 @@ public class RuleGrammarLexer extends Lexer {
             "\1\57",
             "\1\60",
             "\1\61",
-            "\1\62",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "\1\37",
+            "",
+            "",
+            "",
+            "",
             "",
             "",
             "",
             "\1\63",
+            "\1\64",
             "\1\65",
+            "\1\66",
+            "",
+            "",
             "\1\67",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
+            "\1\70",
             "\1\71",
             "\1\72",
-            "\1\73",
+            "\32\34\6\uffff\32\34",
             "\1\74",
-            "",
-            "",
             "\1\75",
             "\1\76",
             "\1\77",
             "\1\100",
-            "\32\37\6\uffff\32\37",
+            "\1\101",
+            "",
             "\1\102",
             "\1\103",
             "\1\104",
-            "\1\105",
+            "\32\34\6\uffff\32\34",
             "\1\106",
             "\1\107",
+            "\32\34\6\uffff\32\34",
+            "\32\34\6\uffff\32\34",
             "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "\1\110",
-            "\1\111",
             "\1\112",
-            "\32\37\6\uffff\32\37",
-            "\1\114",
+            "\1\113",
+            "\32\34\6\uffff\32\34",
             "\1\115",
-            "\32\37\6\uffff\32\37",
-            "\32\37\6\uffff\32\37",
+            "\1\116",
+            "\1\117",
+            "\32\34\6\uffff\32\34",
+            "\32\34\6\uffff\32\34",
+            "\32\34\6\uffff\32\34",
             "",
-            "\1\120",
-            "\1\121",
-            "\32\37\6\uffff\32\37",
             "\1\123",
             "\1\124",
+            "",
+            "",
             "\1\125",
-            "\32\37\6\uffff\32\37",
-            "\32\37\6\uffff\32\37",
-            "\32\37\6\uffff\32\37",
+            "\1\126",
             "",
-            "\1\131",
+            "\32\34\6\uffff\32\34",
+            "\1\130",
+            "\32\34\6\uffff\32\34",
+            "",
+            "",
+            "",
             "\1\132",
-            "",
-            "",
             "\1\133",
             "\1\134",
+            "\1\135",
             "",
-            "\32\37\6\uffff\32\37",
             "\1\136",
-            "\32\37\6\uffff\32\37",
             "",
-            "",
-            "",
-            "\1\140",
-            "\1\141",
+            "\1\137",
+            "\32\34\6\uffff\32\34",
+            "\32\34\6\uffff\32\34",
             "\1\142",
             "\1\143",
-            "",
-            "\1\144",
-            "",
-            "\1\145",
-            "\32\37\6\uffff\32\37",
-            "\32\37\6\uffff\32\37",
-            "\1\150",
-            "\1\151",
-            "\32\37\6\uffff\32\37",
+            "\32\34\6\uffff\32\34",
             "",
             "",
-            "\32\37\6\uffff\32\37",
-            "\32\37\6\uffff\32\37",
+            "\32\34\6\uffff\32\34",
+            "\32\34\6\uffff\32\34",
             "",
             "",
             ""
     };
 
-    static final short[] DFA5_eot = DFA.unpackEncodedString(DFA5_eotS);
-    static final short[] DFA5_eof = DFA.unpackEncodedString(DFA5_eofS);
-    static final char[] DFA5_min = DFA.unpackEncodedStringToUnsignedChars(DFA5_minS);
-    static final char[] DFA5_max = DFA.unpackEncodedStringToUnsignedChars(DFA5_maxS);
-    static final short[] DFA5_accept = DFA.unpackEncodedString(DFA5_acceptS);
-    static final short[] DFA5_special = DFA.unpackEncodedString(DFA5_specialS);
-    static final short[][] DFA5_transition;
+    static final short[] DFA7_eot = DFA.unpackEncodedString(DFA7_eotS);
+    static final short[] DFA7_eof = DFA.unpackEncodedString(DFA7_eofS);
+    static final char[] DFA7_min = DFA.unpackEncodedStringToUnsignedChars(DFA7_minS);
+    static final char[] DFA7_max = DFA.unpackEncodedStringToUnsignedChars(DFA7_maxS);
+    static final short[] DFA7_accept = DFA.unpackEncodedString(DFA7_acceptS);
+    static final short[] DFA7_special = DFA.unpackEncodedString(DFA7_specialS);
+    static final short[][] DFA7_transition;
 
     static {
-        int numStates = DFA5_transitionS.length;
-        DFA5_transition = new short[numStates][];
+        int numStates = DFA7_transitionS.length;
+        DFA7_transition = new short[numStates][];
         for (int i=0; i<numStates; i++) {
-            DFA5_transition[i] = DFA.unpackEncodedString(DFA5_transitionS[i]);
+            DFA7_transition[i] = DFA.unpackEncodedString(DFA7_transitionS[i]);
         }
     }
 
-    class DFA5 extends DFA {
+    class DFA7 extends DFA {
 
-        public DFA5(BaseRecognizer recognizer) {
+        public DFA7(BaseRecognizer recognizer) {
             this.recognizer = recognizer;
-            this.decisionNumber = 5;
-            this.eot = DFA5_eot;
-            this.eof = DFA5_eof;
-            this.min = DFA5_min;
-            this.max = DFA5_max;
-            this.accept = DFA5_accept;
-            this.special = DFA5_special;
-            this.transition = DFA5_transition;
+            this.decisionNumber = 7;
+            this.eot = DFA7_eot;
+            this.eof = DFA7_eof;
+            this.min = DFA7_min;
+            this.max = DFA7_max;
+            this.accept = DFA7_accept;
+            this.special = DFA7_special;
+            this.transition = DFA7_transition;
         }
         public String getDescription() {
-            return "1:1: Tokens : ( T__9 | T__10 | T__11 | T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | INT | NEWLINE | ID | WS | QUOTE );";
+            return "1:1: Tokens : ( T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | INT | NEWLINE | ID | WS | QUOTE | EQUALITY | INEQUALITY );";
         }
     }
  
