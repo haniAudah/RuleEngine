@@ -6,7 +6,7 @@
 	
 	<!-- Add external JARs (antlr, ...)  to classpath -->
 	<path id="master-classpath">
-		<fileset dir="external">
+		<fileset dir="lib">
 			<include name="*.jar"/>
 		</fileset>
 	</path>

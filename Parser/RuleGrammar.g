@@ -9,7 +9,6 @@ options {
 tokens {
 	RULENAME;
 	RULEWHEN;
-	OBJECT;
 }
 
 @header {
@@ -22,7 +21,7 @@ tokens {
 }
 
 @members {
-	HashMap<String, HashMap<String, String>> classTable = new HashMap<String, HashMap<String, String>>();
+	public static HashMap<String, HashMap<String, String>> classTable = new HashMap<String, HashMap<String, String>>();
 	HashMap<String, String> ruleTable = new HashMap<String, String>();
 	//ArrayList classList = new ArrayList();
 }
@@ -89,7 +88,7 @@ scope {
 
 ruleWhen1
 	//TODO: Fix identifier binding
-	:	('not' | (identifier ':'))? ant_class {$ruleWhen::declName = $ant_class.text;} '(' pattern ')' (NEWLINE | ';') -> ^(ant_class pattern);
+	:	('not')? ant_class {$ruleWhen::declName = $ant_class.text;} '(' pattern ')' (NEWLINE | ';') -> ^(ant_class pattern);
 
 ruleWhenK
 	//TODO: Allow idenitifer binding
@@ -174,18 +173,14 @@ expr_not
 	:	('-' | '+')? expr_unary;
 
 expr_unary
-	:	((m1=memberIdentifier ':')? m2=memberIdentifier
+	:	((m1=identifier ':')? m2=identifier
 	{
 	 	if (((HashMap)classTable.get($ruleWhen::declName)).get($m2.text) == null)
-	 		System.err.println("The variable " + $m2.text + " is not a member of " + $ruleWhen::declName + " and was not previously bound.");
+	 		System.err.println("The variable " + $m2.text + " is not a member of " + $ruleWhen::declName);
 	}
-	| INT | '(' pattern ')');
+	| INT | '(' ! pattern ')' !);
 
 identifier
-	:	ID (ID | INT)*;
-
-memberIdentifier
-//TODO: Do you need this?
 	:	ID (ID | INT)*;
 
 INT
