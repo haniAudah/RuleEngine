@@ -14,6 +14,7 @@ tokens {
 @header {
 	package parser;
 	import java.util.HashMap;
+	import java.util.LinkedList;
 }
 
 @lexer::header {
@@ -32,6 +33,9 @@ prog
 TODO: Explain language syntax briefly.
 */
 rule
+scope {
+	LinkedList<String> bindings;
+}
 	:	'rule' ruleName NEWLINE 'when' ruleWhen NEWLINE* 'then' ruleThen NEWLINE* 'end'
 	 	{
 	 		if (ruleTable.get($ruleName.text) != null)
@@ -87,7 +91,7 @@ scope {
 	:	NEWLINE* ruleWhen1 ruleWhenK* -> ^(RULEWHEN ruleWhen1 ruleWhenK*);
 
 ruleWhen1
-	//TODO: Fix identifier binding
+	//TODO: Allow identifier binding
 	:	('not')? ant_class {$ruleWhen::declName = $ant_class.text;} '(' pattern ')' (NEWLINE | ';') -> ^(ant_class pattern);
 
 ruleWhenK
@@ -173,7 +177,7 @@ expr_not
 	:	('-' | '+')? expr_unary;
 
 expr_unary
-	:	((m1=identifier ':')? m2=identifier
+	:	(('$' m1=identifier ':' {if ($rule::bindings.contains($m1.text)) System.err.println($m1.text + " was already bound to another variable.");})? m2=identifier
 	{
 	 	if (((HashMap)classTable.get($ruleWhen::declName)).get($m2.text) == null)
 	 		System.err.println("The variable " + $m2.text + " is not a member of " + $ruleWhen::declName);
