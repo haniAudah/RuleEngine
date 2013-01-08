@@ -6,13 +6,15 @@ import java.util.HashMap;
 import java.util.Stack;
 
 import javax.swing.JFrame;
+import javax.swing.plaf.basic.BasicInternalFrameTitlePane.MaximizeAction;
 
 import com.mxgraph.swing.mxGraphComponent;
 import com.mxgraph.view.mxGraph;
 
 /**
+ * The purpose of this class is to print a crude graphical representation of the invoking RETE.
+ * 
  * @author Hani Audah
- * The purpose of this class is to print a crude graphical representation of the invoking RETE
  */
 public class RETE_printer
 {
@@ -30,7 +32,7 @@ public class RETE_printer
 
 		public Drawer()
 		{
-			super("Alpha Network");
+			super("RETE Network");
 		}
 
 		public Object insertNode(String label, int drawerLevel)
@@ -44,8 +46,7 @@ public class RETE_printer
 			graph.getModel().beginUpdate();
 			try
 			{
-				v = graph.insertVertex(parent, null, label, x, y, 80, 30,
-						"fillColor=white");
+				v = graph.insertVertex(parent, null, label, x, y, 80, 30, "fillColor=white");
 			}
 			finally
 			{
@@ -200,7 +201,8 @@ public class RETE_printer
 		frame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		frame.setSize(640, 480);
 		frame.setVisible(true);
-	
+		frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
+
 		Thread t = new Thread()
 		{
 			public void run()
@@ -220,7 +222,7 @@ public class RETE_printer
 				}
 			}
 		};
-	
+
 		t.start();
 		frame.addWindowListener(new WindowAdapter()
 		{
@@ -234,12 +236,11 @@ public class RETE_printer
 				}
 			}
 		});
-	
+
 		return t;
 	}
 
 	private static final Object lock = new Object();
-	private static boolean monitorState = false;
 	private Drawer frame;
 
 	// The current depth when drawing the RETE nodes
@@ -252,5 +253,4 @@ public class RETE_printer
 
 	// A map of beta nodes previously added, indexed by their unique ids.
 	private HashMap<Integer, Object> betaMap = new HashMap<Integer, Object>();
-
 }

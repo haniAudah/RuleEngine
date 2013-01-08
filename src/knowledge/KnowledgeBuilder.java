@@ -15,9 +15,9 @@ public class KnowledgeBuilder
 {
 	public KnowledgeBuilder()
 	{
-		
+
 	}
-	
+
 	/**
 	 * @param file the DRL or spreadsheet file from which rules are to be read
 	 */	
@@ -29,14 +29,16 @@ public class KnowledgeBuilder
 			RuleGrammarLexer lexer = new RuleGrammarLexer(input);
 			CommonTokenStream tokens = new CommonTokenStream(lexer);
 			RuleGrammarParser parser = new RuleGrammarParser(tokens);
-			
+
 			RuleGrammarParser.prog_return result = parser.prog();
 			Tree parser_AST = (Tree)result.getTree();
 			System.out.println(parser_AST.toStringTree());
-			
+
 			RETE rete = new RETE();
-			rete.constructAlpha(parser_AST);
-			rete.constructBeta();
+
+			// TODO These should be invisible to KnowledgeBuilder
+			rete.constructRETE(parser_AST);
+			// rete.constructBeta();
 			rete.print();
 		}
 		catch (IOException e)
@@ -48,7 +50,7 @@ public class KnowledgeBuilder
 			System.out.println(e.toString());
 		}
 	}
-	
+
 	/**
 	 * Checks if any errors occurred while reading the DRL files or knowledge spreadsheets.
 	 */
