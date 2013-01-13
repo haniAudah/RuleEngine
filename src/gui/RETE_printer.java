@@ -33,6 +33,8 @@ public class RETE_printer
 		public Drawer()
 		{
 			super("RETE Network");
+			graph.setAllowDanglingEdges(false);
+			graph.setConnectableEdges(false);
 		}
 
 		public Object insertNode(String label, int drawerLevel)
@@ -55,6 +57,7 @@ public class RETE_printer
 
 			getContentPane().removeAll();
 			mxGraphComponent graphComponent = new mxGraphComponent(graph);
+			graphComponent.setConnectable(false);
 			getContentPane().add(graphComponent);
 			frame.setVisible(true);
 
@@ -82,6 +85,7 @@ public class RETE_printer
 
 			getContentPane().removeAll();
 			mxGraphComponent graphComponent = new mxGraphComponent(graph);
+			graphComponent.setConnectable(false);
 			getContentPane().add(graphComponent);
 			frame.setVisible(true);
 		}
@@ -100,6 +104,7 @@ public class RETE_printer
 
 			getContentPane().removeAll();
 			mxGraphComponent graphComponent = new mxGraphComponent(graph);
+			graphComponent.setConnectable(false);
 			getContentPane().add(graphComponent);
 			frame.setVisible(true);
 		}
@@ -118,6 +123,7 @@ public class RETE_printer
 
 			getContentPane().removeAll();
 			mxGraphComponent graphComponent = new mxGraphComponent(graph);
+			graphComponent.setConnectable(false);
 			getContentPane().add(graphComponent);
 			frame.setVisible(true);
 		}

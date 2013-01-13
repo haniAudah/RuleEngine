@@ -11,6 +11,7 @@ tokens {
     RULENAME;
     RULEWHEN;
     BREAK;
+    COMMA;  //RETE.java needs a comma as the root, even if there is no real comma.
 }
 
 @header {
@@ -133,10 +134,6 @@ ant_class
 
 pattern
 scope {
-    //For the rest of this grammar, a boolean "has" indicates whether a certain operand was indeed found
-    //while going down the proper order. This is needed for tree construction. For example, a*b would
-    //need to construct an AST ^(* a b) while if no * was found, we would skip ahead to the next operand
-    //rather than constructing ^(a) first. This obviously makes the tree smaller and easier to parse.
     boolean has;
     
     //Number of expr_commas that could NOT be handled in alpha (since it's sorted, emitting this from the
@@ -196,11 +193,12 @@ scope {
         }
     ->  {$pattern::has && $lizy2.size() > 0}? ^(',' $lizy1+ BREAK $lizy2+)
     ->  {$pattern::has}? ^(',' $lizy1+ BREAK)
-    ->  {$lizy1.size() == 0}? BREAK $lizy2+
-    ->  $lizy1+ BREAK;
+    ->  {$lizy1.size() == 0}? ^(COMMA BREAK $lizy2+)
+    ->  ^(COMMA $lizy1+ BREAK);
 
 expr_comma
 @init {
+    //will be changed to true if a binding was indeed used
     $pattern::usesBind.add(false);
 }
     :    expr_and;
@@ -262,6 +260,9 @@ scope {
             else if (((HashMap)classTable.get($ruleWhen::declName)).get($m2.text) == null)
                 System.err.println("The variable " + $m2.text + " is not a member of " + $ruleWhen::declName);
         }
+    ->  {$expr_unary::binding}? ^('$' $m1 ':' $m2)
+    ->  {$expr_unary::bound}? ^('$' $m2)
+    ->  $m2
     |   '(' ! expr_add_sub ')' !
     |   INT
     ;
