@@ -1,11 +1,18 @@
 package engine;
 
+import java.io.File;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.Stack;
+
+import javax.tools.JavaCompiler;
+import javax.tools.JavaFileObject;
+import javax.tools.StandardJavaFileManager;
+import javax.tools.ToolProvider;
 
 import org.antlr.runtime.tree.CommonTree;
 import org.antlr.runtime.tree.Tree;
@@ -76,10 +83,9 @@ public class RETE
 	 */
 	private class attributeBindNodes
 	{
-		public attributeBindNodes(String attribute, List<Node> bindNodes)
+		public attributeBindNodes(Tree attribute, List<Node> bindNodes)
 		{
 			this.attribute = attribute;
-			this.bindNodes = bindNodes;
 			betaMemoryBindNodes = new LinkedList<BetaMemoryNode>();
 			for (Node n : bindNodes)
 			{
@@ -89,14 +95,13 @@ public class RETE
 			}
 		}
 
-		public String getAttribute()
+		public Tree getAttribute()
 		{
 			return attribute;
 		}
 
 		public List<BetaMemoryNode> betaMemoryBindNodes;
-		public List<Node> bindNodes;// TODO Probably dont need this anymore.
-		private String attribute;
+		private Tree attribute;
 	}
 
 	/**
@@ -121,29 +126,6 @@ public class RETE
 			alphaMemory.add(temp);
 
 			retval ret = constructAlpha_helper(pattern, currentType);
-
-			// TODO Remove this mess!!
-			// Append alpha memory nodes to the ends of all branches returned from the alpha construction TODO Moved to constructAlpha
-			// for (Node n : ret.currentNodes)
-			// {
-			// AlphaMemoryNode am = new AlphaMemoryNode();
-			// n.next.add(am);
-			// temp.add(am);
-			// }
-
-			// A binding $var that was bound in this object pattern will need to refer to all objects of
-			// this type that passed the pattern test. The hashmap containing bindings is thus of the type
-			// <String, attributeBindNodes>.
-			// if (!ret.toBind.isEmpty())
-			// {
-			// for (String[] s : ret.toBind)
-			// {
-			// // Note that there is no redundancy here, since java will pass the reference (by value)
-			// // to the abind. So different keys will point to different references, to the same map.
-			// attributeBindNodes abind = new attributeBindNodes(s[1], (List<Node>) (List<?>) alphaMemory.getLast());
-			// bindings.put(s[0], abind);
-			// }
-			// }
 			type = parser_AST.getChild(1).getChild(++i);
 		}
 
@@ -158,16 +140,16 @@ public class RETE
 	 */
 	private class retval
 	{
-		List<String[]> toBind;
 		// currentNodes holds all nodes that will be used for the next stage of the RETE. For
 		// example, a recursive algorithm that needs to branch each node in a graph into two
 		// nodes to form a tree of some depth would need to know the currentNodes from which
 		// to branch (though in that case currentNodes will have size of 1).
 		List<Node> currentNodes;
+		List<Tree> toBind;
 
 		public retval()
 		{
-			toBind = new LinkedList<String[]>();
+			toBind = new LinkedList<Tree>();
 			currentNodes = new LinkedList<Node>();
 		}
 	}
@@ -184,23 +166,33 @@ public class RETE
 		retval r = new retval();
 		String op = pattern.toString();
 
-		if (op.equals("BREAK"))
-		{
-			r.currentNodes = currentNodes;
-			return r;
-		}
-		else if (op.equals(",") || op.equals("COMMA"))
+		if (op.equals(",") || op.equals("COMMA"))
 		{
 			int i = 0;
-			retval ret = constructAlpha_helper(pattern.getChild(i), currentNodes);
+			retval ret;
 			// The alpha network can only handle binding-free patterns
-			while (!pattern.getChild(i).toString().equals("BREAK"))
+			if (getBindUses(pattern.getChild(i).toStringTree()).size() == 0)
 			{
-				// TODO what if there is only 1? Is that even possible??
-				r.toBind.addAll(ret.toBind);
-				ret = constructAlpha_helper(pattern.getChild(++i), ret.currentNodes);
+				ret = constructAlpha_helper(pattern.getChild(i), currentNodes);
+				while (true)
+				{
+					r.toBind.addAll(ret.toBind);
+					i++;
+					if (i < pattern.getChildCount() && getBindUses(pattern.getChild(i).toStringTree()).size() == 0)
+					{
+						ret = constructAlpha_helper(pattern.getChild(i), ret.currentNodes);
+					}
+					else
+					{
+						break;
+					}
+				}
+				r.currentNodes = ret.currentNodes;
 			}
-			r.currentNodes.addAll(ret.currentNodes);
+			else
+			{
+				r.currentNodes = currentNodes;
+			}
 
 			// Append alpha memory nodes to the ends of all branches returned from the alpha construction
 			LinkedList<AlphaMemoryNode> temp = alphaMemory.getLast();
@@ -216,19 +208,20 @@ public class RETE
 			// <String, attributeBindNodes>.
 			if (!r.toBind.isEmpty())
 			{
-				for (String[] s : r.toBind)
+				for (Tree t : r.toBind)
 				{
 					// Note that there is no redundancy here, since java will pass the reference (by value)
-					// to the abind. So different keys will point to different references, to the same map.
-					attributeBindNodes abind = new attributeBindNodes(s[1], (List<Node>) (List<?>) temp);
-					bindings.put(s[0], abind);
+					// to the abind. So different keys will point to different references to the same map.
+					attributeBindNodes abind = new attributeBindNodes(t.getChild(2), (List<Node>) (List<?>) temp);
+					bindings.put(t.getChild(0).toString(), abind);
 				}
 			}
 
 			// The beta network will handle the rest, if there are any left.
-			while (++i < pattern.getChildCount())
+			while (i < pattern.getChildCount())
 			{
 				constructBeta_helper(pattern.getChild(i), temp);
+				i++;
 			}
 		}
 		else if (op.equals("&&"))
@@ -266,7 +259,7 @@ public class RETE
 				{
 					// binding now
 					attr1 = pattern.getChild(0).getChild(2).toString();
-					r.toBind.add(new String[] { pattern.getChild(0).getChild(0).toString(), pattern.getChild(0).getChild(2).toString() });
+					r.toBind.add(pattern.getChild(0));
 				}
 			}
 			else if (attr2.equals("$"))
@@ -279,7 +272,7 @@ public class RETE
 				else
 				{
 					attr2 = pattern.getChild(1).getChild(2).toString();
-					r.toBind.add(new String[] { pattern.getChild(1).getChild(0).toString(), pattern.getChild(1).getChild(3).toString() });
+					r.toBind.add(pattern.getChild(1));
 				}
 			}
 
@@ -300,55 +293,6 @@ public class RETE
 		BetaMemoryNode bm = new BetaMemoryNode();
 		b.next.add(bm);
 		return bm;
-	}
-
-	/**
-	 * TODO Obsolete; remove!
-	 * Adds a beta join node between a specified alpha memory-beta memory pair.
-	 * 
-	 * @param mAlpha
-	 *            the alpha memory whose elements will be passed through the created beta node.
-	 * @param mBeta
-	 *            the beta memory whose elements will be passed through the created beta node.
-	 */
-	private BetaMemoryNode insertBeta(AlphaMemoryNode mAlpha, BetaMemoryNode mBeta)
-	{
-		BetaNode b = new BetaNode(null);
-		mAlpha.next.add(b);
-		mBeta.next.add(b);
-		BetaMemoryNode bm = new BetaMemoryNode();
-		b.next.add(bm);
-		return bm;
-	}
-
-	/**
-	 * TODO Obsolete; remove!
-	 * BetaNodes can only be placed after an alpha memory-beta memory pair. Calls to this function will
-	 * simply result in the necessary dummy nodes being placed where needed.
-	 * 
-	 * @param m1
-	 *            alpha memory whose elements will be passed through the created beta node.
-	 * @param m2
-	 *            alpha memory whose elements will be passed through the created beta node.
-	 */
-	private void insertBeta(AlphaMemoryNode m1, AlphaMemoryNode m2)
-	{
-		// TODO This should insert dummy nodes!!
-
-		// BetaMemoryNode dummy = new BetaMemoryNode();
-		// //m1.next.add();
-		// BetaMemoryNode dummy2 = insertBeta(m1, dummy);
-		// insertBeta(m2, dummy2);
-
-		BetaNode b = new BetaNode(null);
-		m1.next.add(b);
-		m2.next.add(b);
-		BetaMemoryNode bm = new BetaMemoryNode();
-
-		// Assume it will be a dangling mem node
-		betaMemory.add(bm);
-		b.next.add(bm);
-		// return bm;
 	}
 
 	/**
@@ -421,7 +365,7 @@ public class RETE
 			{
 				List<BetaMemoryNode> right;
 				List<BetaMemoryNode> left;
-				if (getBindUses(expressionTree.getChild(1).toStringTree()).size() > 0)
+				if (getBindUses(expressionTree.getChild(1).toStringTree()).size() == 0)
 				{
 					// Right side has no bind uses. Leave the whole condition for left.
 					left = constructBeta_helper(expressionTree, currentNodes);
@@ -496,7 +440,7 @@ public class RETE
 					for (AlphaMemoryNode n2 : alphaMemory.get(j))
 					{
 						// 4: and join them with a beta node
-						insertBeta(n1, n2);
+						// insertBeta(n1, n2);
 					}
 				}
 			}
@@ -571,8 +515,8 @@ public class RETE
 			if (expression.charAt(j) == ')')
 			{
 				bindUses.add(expression.substring(i + 2, j));
-				expression = expression.substring(j + 1);
 			}
+			expression = expression.substring(j + 1);
 			i = expression.indexOf('$');
 		}
 		return bindUses;
@@ -585,24 +529,26 @@ public class RETE
 	 */
 	private void resolveBindings(Tree pattern)
 	{
-		if (pattern.toString().equals("$"))
+		if (pattern.getChildCount() > 0)
 		{
-			// It's a bind use if it has only 1 child: ($ var) as opposed to ($ var : attribute)
-			if (pattern.getChildCount() == 1)
+			// For all children (will only be two actually, since all ops are binary)
+			for (int i = 0; i < pattern.getChildCount(); i++)
 			{
-				// Lookup hashmap bindings to determine if the binding is known
-				attributeBindNodes abind = bindings.get(pattern.getChild(0).toString());
-				if (abind != null)
+				if (pattern.getChild(i).toString().equals("$"))
 				{
-					// pattern.set abind.attribute; TODO Set it to the attribute
+					// It's a bind use if it has only 1 child: ^($ var) as opposed to ^($ var : attribute)
+					if (pattern.getChild(i).getChildCount() == 1)
+					{
+						// Lookup hashmap bindings to determine if the binding is known
+						attributeBindNodes abind = bindings.get(pattern.getChild(i).getChild(0).toString());
+						if (abind != null)
+						{
+							pattern.setChild(i, abind.attribute);
+						}
+					}
 				}
+				resolveBindings(pattern.getChild(i));
 			}
-		}
-		else if (pattern.getChildCount() > 0)
-		{
-			// Either && or ||
-			resolveBindings(pattern.getChild(0));
-			resolveBindings(pattern.getChild(1));
 		}
 		else
 		{
@@ -621,6 +567,41 @@ public class RETE
 			b.next.add(t);
 			terminalMemory.add(t);
 		}
+	}
+
+	/**
+	 * Compiles the RETE into a java class at the path specified by the parameter.
+	 * 
+	 * @param path
+	 *            the path of the java file to be created when compiling the RETE. If it is null,
+	 *            the file will be created in bin\output, where bin is the directory of the program's class
+	 *            files.
+	 */
+	public void compileRETE(String path)
+	{
+		//Create a file and compiler object, then invoke the compiler on that file (don't mind the details).
+		File dest = new File(path);
+		JavaCompiler compiler = ToolProvider.getSystemJavaCompiler();
+		StandardJavaFileManager fileManager = compiler.getStandardFileManager(null, null, null);
+		Iterable<? extends JavaFileObject> compilationUnits1 = fileManager.getJavaFileObjectsFromFiles(Arrays.asList(dest));
+
+		compileRETE_helper(root);
+	}
+
+	/**
+	 * Private helper function to insert statements in the compiled RETE java file that would create a
+	 * RETE identical to the one specified here, except that its nodes implement static (faster) condition
+	 * evaluation.
+	 */
+	private void compileRETE_helper(Node n)
+	{
+		//Reflection is used liberally here since only the performance of the compiled RETE is important
+		if (n instanceof RootNode)
+		{
+			//TODO Insert root and call the insertions for the children
+
+		}
+		//if (n instanceof AlphaNode)
 	}
 
 	/**

@@ -51,7 +51,7 @@ scope {
              else
              {
                  ruleTable.put($ruleName.text, "bla");
-                 //TODO Decide on how you want to store the rule
+                 //TODO ruleTable should actually be a list (ok for now)
              }
          } -> ^('rule' ruleName ruleWhen 'then');
 
@@ -75,7 +75,9 @@ scope {
                  classTable.put($declName.text, $decl::newClass);
                  System.out.println(classTable);
             }
-         }; //The AST doesn't include declarations, everything that needs to be done is done while reading 'declare' statements.
+         };
+         //The AST doesn't include declarations, everything that needs to be done is done while reading 'declare' statements.
+         //classTable is declared as public to allow outside access.
 
 declName
     :    sub2;
@@ -156,45 +158,28 @@ scope {
     $pattern::usesBind = new LinkedList<Boolean>();
     $pattern::numOfUses = 0;
 }
-    :   lizy1+=expr_comma (',' lizy2+=expr_comma {$pattern::has = true;})*
+    :   lizy1+=expr_comma (',' lizy1+=expr_comma {$pattern::has = true;})*
         {
-            //I needed to emit two different lists (one with the uses and the other without)
-            //so I did the following: 
-            //1) use two variables lizy1 and lizy2 in the rule for no reason
-            //2) move everything to lizy2 (there will only be a single elem in lizy1)
-            //3) move back only the non-users
-            //4) seperate them with an imaginary break node to simplify later reading
-            //You won't find any other way to do this without knowledge of how antlr is
-            //implementing and using these lists behind the scenes.
             if ($pattern::has)
             {
-	            $lizy2.add(0, $lizy1.get(0));
-	            $lizy1.remove(0);
-	            
-	            //transfer
-	            for (int i = 0; i < $lizy2.size(); i++)
+	            //Move non-bind-users to the start of the list to simplify things later
+	            int i;
+	            for (i = 0; i < $lizy1.size(); i++)
 	            {
-	                if (!$pattern::usesBind.get(i))
-	                    $lizy1.add($lizy2.get(i));
-	            }
-	            int removed = 0;
-	            //remove transferred
-	            for (int i = 0; i < $lizy2.size() + removed; i++)
-	            {
-	                if (!$pattern::usesBind.get(i))
+	                if ($pattern::usesBind.get(i))
 	                {
-	                    $lizy2.remove(i - removed);
-	                    removed++;
+	                    for (int j = $lizy1.size() - 1; j > i; j--)
+	                    {
+	                        if (!$pattern::usesBind.get(j))
+	                            Collections.swap($lizy1, i, j);
+	                    }
 	                }
 	            }
-	            System.out.println("non-users = " + $lizy1.size());
-	            System.out.println("users = " + $lizy2.size());
+	            System.out.println("Last non-user = " + i);
 	        }
         }
-    ->  {$pattern::has && $lizy2.size() > 0}? ^(',' $lizy1+ BREAK $lizy2+)
-    ->  {$pattern::has}? ^(',' $lizy1+ BREAK)
-    ->  {$lizy1.size() == 0}? ^(COMMA BREAK $lizy2+)
-    ->  ^(COMMA $lizy1+ BREAK);
+    ->  {$pattern::has}? ^(',' $lizy1+)
+    ->  ^(COMMA $lizy1+);
 
 expr_comma
 @init {

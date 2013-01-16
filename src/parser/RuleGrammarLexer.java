@@ -1,4 +1,4 @@
-// $ANTLR 3.3 Nov 30, 2010 12:50:56 C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g 2013-01-13 16:50:32
+// $ANTLR 3.3 Nov 30, 2010 12:50:56 C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g 2013-01-16 19:57:31
 
     package parser;
 
@@ -625,12 +625,12 @@ public class RuleGrammarLexer extends Lexer {
         try {
             int _type = LINE_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:275:5: ( '//' (~ ( '\\r' | '\\n' ) )* NEWLINE )
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:275:10: '//' (~ ( '\\r' | '\\n' ) )* NEWLINE
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:260:5: ( '//' (~ ( '\\r' | '\\n' ) )* NEWLINE )
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:260:10: '//' (~ ( '\\r' | '\\n' ) )* NEWLINE
             {
             match("//"); 
 
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:275:15: (~ ( '\\r' | '\\n' ) )*
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:260:15: (~ ( '\\r' | '\\n' ) )*
             loop1:
             do {
                 int alt1=2;
@@ -643,7 +643,7 @@ public class RuleGrammarLexer extends Lexer {
 
                 switch (alt1) {
             	case 1 :
-            	    // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:275:16: ~ ( '\\r' | '\\n' )
+            	    // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:260:16: ~ ( '\\r' | '\\n' )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -681,10 +681,10 @@ public class RuleGrammarLexer extends Lexer {
         try {
             int _type = INT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:277:5: ( ( '0' .. '9' )+ )
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:277:10: ( '0' .. '9' )+
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:262:5: ( ( '0' .. '9' )+ )
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:262:10: ( '0' .. '9' )+
             {
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:277:10: ( '0' .. '9' )+
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:262:10: ( '0' .. '9' )+
             int cnt2=0;
             loop2:
             do {
@@ -698,7 +698,7 @@ public class RuleGrammarLexer extends Lexer {
 
                 switch (alt2) {
             	case 1 :
-            	    // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:277:10: '0' .. '9'
+            	    // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:262:10: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -730,10 +730,10 @@ public class RuleGrammarLexer extends Lexer {
         try {
             int _type = NEWLINE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:279:5: ( ( '\\r' )? '\\n' )
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:279:10: ( '\\r' )? '\\n'
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:264:5: ( ( '\\r' )? '\\n' )
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:264:10: ( '\\r' )? '\\n'
             {
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:279:10: ( '\\r' )?
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:264:10: ( '\\r' )?
             int alt3=2;
             int LA3_0 = input.LA(1);
 
@@ -742,7 +742,7 @@ public class RuleGrammarLexer extends Lexer {
             }
             switch (alt3) {
                 case 1 :
-                    // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:279:10: '\\r'
+                    // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:264:10: '\\r'
                     {
                     match('\r'); 
 
@@ -768,10 +768,10 @@ public class RuleGrammarLexer extends Lexer {
         try {
             int _type = ID;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:281:5: ( ( 'a' .. 'z' | 'A' .. 'Z' )+ )
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:281:10: ( 'a' .. 'z' | 'A' .. 'Z' )+
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:266:5: ( ( 'a' .. 'z' | 'A' .. 'Z' )+ )
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:266:10: ( 'a' .. 'z' | 'A' .. 'Z' )+
             {
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:281:10: ( 'a' .. 'z' | 'A' .. 'Z' )+
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:266:10: ( 'a' .. 'z' | 'A' .. 'Z' )+
             int cnt4=0;
             loop4:
             do {
@@ -825,10 +825,10 @@ public class RuleGrammarLexer extends Lexer {
         try {
             int _type = WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:283:5: ( ( ' ' | '\\t' )+ )
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:283:10: ( ' ' | '\\t' )+
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:268:5: ( ( ' ' | '\\t' )+ )
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:268:10: ( ' ' | '\\t' )+
             {
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:283:10: ( ' ' | '\\t' )+
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:268:10: ( ' ' | '\\t' )+
             int cnt5=0;
             loop5:
             do {
@@ -883,8 +883,8 @@ public class RuleGrammarLexer extends Lexer {
         try {
             int _type = QUOTE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:285:5: ( '\"' )
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:285:10: '\"'
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:270:5: ( '\"' )
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:270:10: '\"'
             {
             match('\"'); 
 
@@ -903,10 +903,10 @@ public class RuleGrammarLexer extends Lexer {
         try {
             int _type = EQUALITY;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:287:5: ( ( '==' | '!=' ) )
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:287:10: ( '==' | '!=' )
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:272:5: ( ( '==' | '!=' ) )
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:272:10: ( '==' | '!=' )
             {
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:287:10: ( '==' | '!=' )
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:272:10: ( '==' | '!=' )
             int alt6=2;
             int LA6_0 = input.LA(1);
 
@@ -924,7 +924,7 @@ public class RuleGrammarLexer extends Lexer {
             }
             switch (alt6) {
                 case 1 :
-                    // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:287:11: '=='
+                    // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:272:11: '=='
                     {
                     match("=="); 
 
@@ -932,7 +932,7 @@ public class RuleGrammarLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:287:18: '!='
+                    // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:272:18: '!='
                     {
                     match("!="); 
 
@@ -958,10 +958,10 @@ public class RuleGrammarLexer extends Lexer {
         try {
             int _type = INEQUALITY;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:289:5: ( ( '>=' | '<=' | '>' | '<' ) )
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:289:10: ( '>=' | '<=' | '>' | '<' )
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:274:5: ( ( '>=' | '<=' | '>' | '<' ) )
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:274:10: ( '>=' | '<=' | '>' | '<' )
             {
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:289:10: ( '>=' | '<=' | '>' | '<' )
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:274:10: ( '>=' | '<=' | '>' | '<' )
             int alt7=4;
             int LA7_0 = input.LA(1);
 
@@ -991,7 +991,7 @@ public class RuleGrammarLexer extends Lexer {
             }
             switch (alt7) {
                 case 1 :
-                    // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:289:11: '>='
+                    // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:274:11: '>='
                     {
                     match(">="); 
 
@@ -999,7 +999,7 @@ public class RuleGrammarLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:289:18: '<='
+                    // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:274:18: '<='
                     {
                     match("<="); 
 
@@ -1007,14 +1007,14 @@ public class RuleGrammarLexer extends Lexer {
                     }
                     break;
                 case 3 :
-                    // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:289:25: '>'
+                    // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:274:25: '>'
                     {
                     match('>'); 
 
                     }
                     break;
                 case 4 :
-                    // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:289:31: '<'
+                    // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:274:31: '<'
                     {
                     match('<'); 
 

@@ -1,4 +1,4 @@
-// $ANTLR 3.3 Nov 30, 2010 12:50:56 C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g 2013-01-13 16:50:31
+// $ANTLR 3.3 Nov 30, 2010 12:50:56 C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g 2013-01-16 19:57:31
 
     package parser;
     import java.util.HashMap;
@@ -356,14 +356,14 @@ public class RuleGrammarParser extends Parser {
                            else
                            {
                                ruleTable.put((ruleName5!=null?input.toString(ruleName5.start,ruleName5.stop):null), "bla");
-                               //TODO Decide on how you want to store the rule
+                               //TODO ruleTable should actually be a list (ok for now)
                            }
                        
             }
 
 
             // AST REWRITE
-            // elements: ruleName, 16, 18, ruleWhen
+            // elements: ruleWhen, ruleName, 18, 16
             // token labels: 
             // rule labels: retval
             // token list labels: 
@@ -604,7 +604,7 @@ public class RuleGrammarParser extends Parser {
     };
 
     // $ANTLR start "declName"
-    // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:80:1: declName : sub2 ;
+    // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:82:1: declName : sub2 ;
     public final RuleGrammarParser.declName_return declName() throws RecognitionException {
         RuleGrammarParser.declName_return retval = new RuleGrammarParser.declName_return();
         retval.start = input.LT(1);
@@ -616,12 +616,12 @@ public class RuleGrammarParser extends Parser {
 
 
         try {
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:81:5: ( sub2 )
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:81:10: sub2
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:83:5: ( sub2 )
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:83:10: sub2
             {
             root_0 = (Object)adaptor.nil();
 
-            pushFollow(FOLLOW_sub2_in_declName274);
+            pushFollow(FOLLOW_sub2_in_declName293);
             sub220=sub2();
 
             state._fsp--;
@@ -658,7 +658,7 @@ public class RuleGrammarParser extends Parser {
     };
 
     // $ANTLR start "declMember"
-    // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:83:1: declMember returns [String attr, String type] : declAttribute ':' declAttributeType ;
+    // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:85:1: declMember returns [String attr, String type] : declAttribute ':' declAttributeType ;
     public final RuleGrammarParser.declMember_return declMember() throws RecognitionException {
         RuleGrammarParser.declMember_return retval = new RuleGrammarParser.declMember_return();
         retval.start = input.LT(1);
@@ -674,23 +674,23 @@ public class RuleGrammarParser extends Parser {
         Object char_literal22_tree=null;
 
         try {
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:84:5: ( declAttribute ':' declAttributeType )
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:84:10: declAttribute ':' declAttributeType
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:86:5: ( declAttribute ':' declAttributeType )
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:86:10: declAttribute ':' declAttributeType
             {
             root_0 = (Object)adaptor.nil();
 
-            pushFollow(FOLLOW_declAttribute_in_declMember293);
+            pushFollow(FOLLOW_declAttribute_in_declMember312);
             declAttribute21=declAttribute();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) adaptor.addChild(root_0, declAttribute21.getTree());
-            char_literal22=(Token)match(input,21,FOLLOW_21_in_declMember295); if (state.failed) return retval;
+            char_literal22=(Token)match(input,21,FOLLOW_21_in_declMember314); if (state.failed) return retval;
             if ( state.backtracking==0 ) {
             char_literal22_tree = (Object)adaptor.create(char_literal22);
             adaptor.addChild(root_0, char_literal22_tree);
             }
-            pushFollow(FOLLOW_declAttributeType_in_declMember297);
+            pushFollow(FOLLOW_declAttributeType_in_declMember316);
             declAttributeType23=declAttributeType();
 
             state._fsp--;
@@ -728,7 +728,7 @@ public class RuleGrammarParser extends Parser {
     };
 
     // $ANTLR start "ruleName"
-    // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:86:1: ruleName : ( sub1 | ( QUOTE sub1 QUOTE ) ) -> ^( RULENAME sub1 ) ;
+    // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:88:1: ruleName : ( sub1 | ( QUOTE sub1 QUOTE ) ) -> ^( RULENAME sub1 ) ;
     public final RuleGrammarParser.ruleName_return ruleName() throws RecognitionException {
         RuleGrammarParser.ruleName_return retval = new RuleGrammarParser.ruleName_return();
         retval.start = input.LT(1);
@@ -747,10 +747,10 @@ public class RuleGrammarParser extends Parser {
         RewriteRuleTokenStream stream_QUOTE=new RewriteRuleTokenStream(adaptor,"token QUOTE");
         RewriteRuleSubtreeStream stream_sub1=new RewriteRuleSubtreeStream(adaptor,"rule sub1");
         try {
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:87:5: ( ( sub1 | ( QUOTE sub1 QUOTE ) ) -> ^( RULENAME sub1 ) )
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:87:10: ( sub1 | ( QUOTE sub1 QUOTE ) )
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:89:5: ( ( sub1 | ( QUOTE sub1 QUOTE ) ) -> ^( RULENAME sub1 ) )
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:89:10: ( sub1 | ( QUOTE sub1 QUOTE ) )
             {
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:87:10: ( sub1 | ( QUOTE sub1 QUOTE ) )
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:89:10: ( sub1 | ( QUOTE sub1 QUOTE ) )
             int alt6=2;
             int LA6_0 = input.LA(1);
 
@@ -769,9 +769,9 @@ public class RuleGrammarParser extends Parser {
             }
             switch (alt6) {
                 case 1 :
-                    // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:87:11: sub1
+                    // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:89:11: sub1
                     {
-                    pushFollow(FOLLOW_sub1_in_ruleName315);
+                    pushFollow(FOLLOW_sub1_in_ruleName334);
                     sub124=sub1();
 
                     state._fsp--;
@@ -781,21 +781,21 @@ public class RuleGrammarParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:87:18: ( QUOTE sub1 QUOTE )
+                    // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:89:18: ( QUOTE sub1 QUOTE )
                     {
-                    // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:87:18: ( QUOTE sub1 QUOTE )
-                    // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:87:19: QUOTE sub1 QUOTE
+                    // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:89:18: ( QUOTE sub1 QUOTE )
+                    // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:89:19: QUOTE sub1 QUOTE
                     {
-                    QUOTE25=(Token)match(input,QUOTE,FOLLOW_QUOTE_in_ruleName320); if (state.failed) return retval; 
+                    QUOTE25=(Token)match(input,QUOTE,FOLLOW_QUOTE_in_ruleName339); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_QUOTE.add(QUOTE25);
 
-                    pushFollow(FOLLOW_sub1_in_ruleName322);
+                    pushFollow(FOLLOW_sub1_in_ruleName341);
                     sub126=sub1();
 
                     state._fsp--;
                     if (state.failed) return retval;
                     if ( state.backtracking==0 ) stream_sub1.add(sub126.getTree());
-                    QUOTE27=(Token)match(input,QUOTE,FOLLOW_QUOTE_in_ruleName324); if (state.failed) return retval; 
+                    QUOTE27=(Token)match(input,QUOTE,FOLLOW_QUOTE_in_ruleName343); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_QUOTE.add(QUOTE27);
 
 
@@ -821,9 +821,9 @@ public class RuleGrammarParser extends Parser {
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (Object)adaptor.nil();
-            // 87:38: -> ^( RULENAME sub1 )
+            // 89:38: -> ^( RULENAME sub1 )
             {
-                // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:87:41: ^( RULENAME sub1 )
+                // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:89:41: ^( RULENAME sub1 )
                 {
                 Object root_1 = (Object)adaptor.nil();
                 root_1 = (Object)adaptor.becomeRoot((Object)adaptor.create(RULENAME, "RULENAME"), root_1);
@@ -872,7 +872,7 @@ public class RuleGrammarParser extends Parser {
     };
 
     // $ANTLR start "ruleWhen"
-    // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:89:1: ruleWhen : ( NEWLINE )* ruleWhen1 ( ruleWhenK )* -> ^( RULEWHEN ruleWhen1 ( ruleWhenK )* ) ;
+    // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:91:1: ruleWhen : ( NEWLINE )* ruleWhen1 ( ruleWhenK )* -> ^( RULEWHEN ruleWhen1 ( ruleWhenK )* ) ;
     public final RuleGrammarParser.ruleWhen_return ruleWhen() throws RecognitionException {
         ruleWhen_stack.push(new ruleWhen_scope());
         RuleGrammarParser.ruleWhen_return retval = new RuleGrammarParser.ruleWhen_return();
@@ -891,10 +891,10 @@ public class RuleGrammarParser extends Parser {
         RewriteRuleSubtreeStream stream_ruleWhenK=new RewriteRuleSubtreeStream(adaptor,"rule ruleWhenK");
         RewriteRuleSubtreeStream stream_ruleWhen1=new RewriteRuleSubtreeStream(adaptor,"rule ruleWhen1");
         try {
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:98:5: ( ( NEWLINE )* ruleWhen1 ( ruleWhenK )* -> ^( RULEWHEN ruleWhen1 ( ruleWhenK )* ) )
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:98:10: ( NEWLINE )* ruleWhen1 ( ruleWhenK )*
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:100:5: ( ( NEWLINE )* ruleWhen1 ( ruleWhenK )* -> ^( RULEWHEN ruleWhen1 ( ruleWhenK )* ) )
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:100:10: ( NEWLINE )* ruleWhen1 ( ruleWhenK )*
             {
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:98:10: ( NEWLINE )*
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:100:10: ( NEWLINE )*
             loop7:
             do {
                 int alt7=2;
@@ -909,7 +909,7 @@ public class RuleGrammarParser extends Parser {
             	case 1 :
             	    // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:0:0: NEWLINE
             	    {
-            	    NEWLINE28=(Token)match(input,NEWLINE,FOLLOW_NEWLINE_in_ruleWhen358); if (state.failed) return retval; 
+            	    NEWLINE28=(Token)match(input,NEWLINE,FOLLOW_NEWLINE_in_ruleWhen377); if (state.failed) return retval; 
             	    if ( state.backtracking==0 ) stream_NEWLINE.add(NEWLINE28);
 
 
@@ -921,13 +921,13 @@ public class RuleGrammarParser extends Parser {
                 }
             } while (true);
 
-            pushFollow(FOLLOW_ruleWhen1_in_ruleWhen361);
+            pushFollow(FOLLOW_ruleWhen1_in_ruleWhen380);
             ruleWhen129=ruleWhen1();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) stream_ruleWhen1.add(ruleWhen129.getTree());
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:98:29: ( ruleWhenK )*
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:100:29: ( ruleWhenK )*
             loop8:
             do {
                 int alt8=2;
@@ -942,7 +942,7 @@ public class RuleGrammarParser extends Parser {
             	case 1 :
             	    // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:0:0: ruleWhenK
             	    {
-            	    pushFollow(FOLLOW_ruleWhenK_in_ruleWhen363);
+            	    pushFollow(FOLLOW_ruleWhenK_in_ruleWhen382);
             	    ruleWhenK30=ruleWhenK();
 
             	    state._fsp--;
@@ -960,7 +960,7 @@ public class RuleGrammarParser extends Parser {
 
 
             // AST REWRITE
-            // elements: ruleWhenK, ruleWhen1
+            // elements: ruleWhen1, ruleWhenK
             // token labels: 
             // rule labels: retval
             // token list labels: 
@@ -971,15 +971,15 @@ public class RuleGrammarParser extends Parser {
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (Object)adaptor.nil();
-            // 98:40: -> ^( RULEWHEN ruleWhen1 ( ruleWhenK )* )
+            // 100:40: -> ^( RULEWHEN ruleWhen1 ( ruleWhenK )* )
             {
-                // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:98:43: ^( RULEWHEN ruleWhen1 ( ruleWhenK )* )
+                // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:100:43: ^( RULEWHEN ruleWhen1 ( ruleWhenK )* )
                 {
                 Object root_1 = (Object)adaptor.nil();
                 root_1 = (Object)adaptor.becomeRoot((Object)adaptor.create(RULEWHEN, "RULEWHEN"), root_1);
 
                 adaptor.addChild(root_1, stream_ruleWhen1.nextTree());
-                // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:98:64: ( ruleWhenK )*
+                // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:100:64: ( ruleWhenK )*
                 while ( stream_ruleWhenK.hasNext() ) {
                     adaptor.addChild(root_1, stream_ruleWhenK.nextTree());
 
@@ -1021,7 +1021,7 @@ public class RuleGrammarParser extends Parser {
     };
 
     // $ANTLR start "ruleWhen1"
-    // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:100:1: ruleWhen1 : ( 'not' )? ant_class '(' pattern ')' ( NEWLINE | ';' ) -> ^( ant_class pattern ) ;
+    // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:102:1: ruleWhen1 : ( 'not' )? ant_class '(' pattern ')' ( NEWLINE | ';' ) -> ^( ant_class pattern ) ;
     public final RuleGrammarParser.ruleWhen1_return ruleWhen1() throws RecognitionException {
         RuleGrammarParser.ruleWhen1_return retval = new RuleGrammarParser.ruleWhen1_return();
         retval.start = input.LT(1);
@@ -1054,10 +1054,10 @@ public class RuleGrammarParser extends Parser {
             ((ruleWhen_scope)ruleWhen_stack.peek()).bindings = new LinkedList<String>();
 
         try {
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:106:5: ( ( 'not' )? ant_class '(' pattern ')' ( NEWLINE | ';' ) -> ^( ant_class pattern ) )
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:106:10: ( 'not' )? ant_class '(' pattern ')' ( NEWLINE | ';' )
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:108:5: ( ( 'not' )? ant_class '(' pattern ')' ( NEWLINE | ';' ) -> ^( ant_class pattern ) )
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:108:10: ( 'not' )? ant_class '(' pattern ')' ( NEWLINE | ';' )
             {
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:106:10: ( 'not' )?
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:108:10: ( 'not' )?
             int alt9=2;
             int LA9_0 = input.LA(1);
 
@@ -1066,9 +1066,9 @@ public class RuleGrammarParser extends Parser {
             }
             switch (alt9) {
                 case 1 :
-                    // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:106:11: 'not'
+                    // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:108:11: 'not'
                     {
-                    string_literal31=(Token)match(input,22,FOLLOW_22_in_ruleWhen1406); if (state.failed) return retval; 
+                    string_literal31=(Token)match(input,22,FOLLOW_22_in_ruleWhen1425); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_22.add(string_literal31);
 
 
@@ -1077,7 +1077,7 @@ public class RuleGrammarParser extends Parser {
 
             }
 
-            pushFollow(FOLLOW_ant_class_in_ruleWhen1410);
+            pushFollow(FOLLOW_ant_class_in_ruleWhen1429);
             ant_class32=ant_class();
 
             state._fsp--;
@@ -1086,19 +1086,19 @@ public class RuleGrammarParser extends Parser {
             if ( state.backtracking==0 ) {
               ((ruleWhen_scope)ruleWhen_stack.peek()).declName = (ant_class32!=null?input.toString(ant_class32.start,ant_class32.stop):null);
             }
-            char_literal33=(Token)match(input,23,FOLLOW_23_in_ruleWhen1414); if (state.failed) return retval; 
+            char_literal33=(Token)match(input,23,FOLLOW_23_in_ruleWhen1433); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_23.add(char_literal33);
 
-            pushFollow(FOLLOW_pattern_in_ruleWhen1416);
+            pushFollow(FOLLOW_pattern_in_ruleWhen1435);
             pattern34=pattern();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) stream_pattern.add(pattern34.getTree());
-            char_literal35=(Token)match(input,24,FOLLOW_24_in_ruleWhen1418); if (state.failed) return retval; 
+            char_literal35=(Token)match(input,24,FOLLOW_24_in_ruleWhen1437); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_24.add(char_literal35);
 
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:106:86: ( NEWLINE | ';' )
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:108:86: ( NEWLINE | ';' )
             int alt10=2;
             int LA10_0 = input.LA(1);
 
@@ -1117,18 +1117,18 @@ public class RuleGrammarParser extends Parser {
             }
             switch (alt10) {
                 case 1 :
-                    // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:106:87: NEWLINE
+                    // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:108:87: NEWLINE
                     {
-                    NEWLINE36=(Token)match(input,NEWLINE,FOLLOW_NEWLINE_in_ruleWhen1421); if (state.failed) return retval; 
+                    NEWLINE36=(Token)match(input,NEWLINE,FOLLOW_NEWLINE_in_ruleWhen1440); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_NEWLINE.add(NEWLINE36);
 
 
                     }
                     break;
                 case 2 :
-                    // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:106:97: ';'
+                    // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:108:97: ';'
                     {
-                    char_literal37=(Token)match(input,25,FOLLOW_25_in_ruleWhen1425); if (state.failed) return retval; 
+                    char_literal37=(Token)match(input,25,FOLLOW_25_in_ruleWhen1444); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_25.add(char_literal37);
 
 
@@ -1151,9 +1151,9 @@ public class RuleGrammarParser extends Parser {
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (Object)adaptor.nil();
-            // 106:102: -> ^( ant_class pattern )
+            // 108:102: -> ^( ant_class pattern )
             {
-                // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:106:105: ^( ant_class pattern )
+                // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:108:105: ^( ant_class pattern )
                 {
                 Object root_1 = (Object)adaptor.nil();
                 root_1 = (Object)adaptor.becomeRoot(stream_ant_class.nextNode(), root_1);
@@ -1194,7 +1194,7 @@ public class RuleGrammarParser extends Parser {
     };
 
     // $ANTLR start "ruleWhenK"
-    // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:108:1: ruleWhenK : ( ( 'and' | 'or' | 'not' )? ant_class '(' pattern ')' ( NEWLINE | ';' ) ) -> ^( ant_class pattern ) ;
+    // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:110:1: ruleWhenK : ( ( 'and' | 'or' | 'not' )? ant_class '(' pattern ')' ( NEWLINE | ';' ) ) -> ^( ant_class pattern ) ;
     public final RuleGrammarParser.ruleWhenK_return ruleWhenK() throws RecognitionException {
         RuleGrammarParser.ruleWhenK_return retval = new RuleGrammarParser.ruleWhenK_return();
         retval.start = input.LT(1);
@@ -1233,13 +1233,13 @@ public class RuleGrammarParser extends Parser {
             ((ruleWhen_scope)ruleWhen_stack.peek()).bindings = new LinkedList<String>();
 
         try {
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:113:5: ( ( ( 'and' | 'or' | 'not' )? ant_class '(' pattern ')' ( NEWLINE | ';' ) ) -> ^( ant_class pattern ) )
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:113:10: ( ( 'and' | 'or' | 'not' )? ant_class '(' pattern ')' ( NEWLINE | ';' ) )
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:115:5: ( ( ( 'and' | 'or' | 'not' )? ant_class '(' pattern ')' ( NEWLINE | ';' ) ) -> ^( ant_class pattern ) )
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:115:10: ( ( 'and' | 'or' | 'not' )? ant_class '(' pattern ')' ( NEWLINE | ';' ) )
             {
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:113:10: ( ( 'and' | 'or' | 'not' )? ant_class '(' pattern ')' ( NEWLINE | ';' ) )
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:113:11: ( 'and' | 'or' | 'not' )? ant_class '(' pattern ')' ( NEWLINE | ';' )
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:115:10: ( ( 'and' | 'or' | 'not' )? ant_class '(' pattern ')' ( NEWLINE | ';' ) )
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:115:11: ( 'and' | 'or' | 'not' )? ant_class '(' pattern ')' ( NEWLINE | ';' )
             {
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:113:11: ( 'and' | 'or' | 'not' )?
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:115:11: ( 'and' | 'or' | 'not' )?
             int alt11=4;
             switch ( input.LA(1) ) {
                 case 26:
@@ -1261,27 +1261,27 @@ public class RuleGrammarParser extends Parser {
 
             switch (alt11) {
                 case 1 :
-                    // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:113:12: 'and'
+                    // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:115:12: 'and'
                     {
-                    string_literal38=(Token)match(input,26,FOLLOW_26_in_ruleWhenK461); if (state.failed) return retval; 
+                    string_literal38=(Token)match(input,26,FOLLOW_26_in_ruleWhenK480); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_26.add(string_literal38);
 
 
                     }
                     break;
                 case 2 :
-                    // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:113:20: 'or'
+                    // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:115:20: 'or'
                     {
-                    string_literal39=(Token)match(input,27,FOLLOW_27_in_ruleWhenK465); if (state.failed) return retval; 
+                    string_literal39=(Token)match(input,27,FOLLOW_27_in_ruleWhenK484); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_27.add(string_literal39);
 
 
                     }
                     break;
                 case 3 :
-                    // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:113:27: 'not'
+                    // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:115:27: 'not'
                     {
-                    string_literal40=(Token)match(input,22,FOLLOW_22_in_ruleWhenK469); if (state.failed) return retval; 
+                    string_literal40=(Token)match(input,22,FOLLOW_22_in_ruleWhenK488); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_22.add(string_literal40);
 
 
@@ -1290,7 +1290,7 @@ public class RuleGrammarParser extends Parser {
 
             }
 
-            pushFollow(FOLLOW_ant_class_in_ruleWhenK473);
+            pushFollow(FOLLOW_ant_class_in_ruleWhenK492);
             ant_class41=ant_class();
 
             state._fsp--;
@@ -1299,19 +1299,19 @@ public class RuleGrammarParser extends Parser {
             if ( state.backtracking==0 ) {
               ((ruleWhen_scope)ruleWhen_stack.peek()).declName = (ant_class41!=null?input.toString(ant_class41.start,ant_class41.stop):null);
             }
-            char_literal42=(Token)match(input,23,FOLLOW_23_in_ruleWhenK477); if (state.failed) return retval; 
+            char_literal42=(Token)match(input,23,FOLLOW_23_in_ruleWhenK496); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_23.add(char_literal42);
 
-            pushFollow(FOLLOW_pattern_in_ruleWhenK479);
+            pushFollow(FOLLOW_pattern_in_ruleWhenK498);
             pattern43=pattern();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) stream_pattern.add(pattern43.getTree());
-            char_literal44=(Token)match(input,24,FOLLOW_24_in_ruleWhenK481); if (state.failed) return retval; 
+            char_literal44=(Token)match(input,24,FOLLOW_24_in_ruleWhenK500); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_24.add(char_literal44);
 
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:113:102: ( NEWLINE | ';' )
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:115:102: ( NEWLINE | ';' )
             int alt12=2;
             int LA12_0 = input.LA(1);
 
@@ -1330,18 +1330,18 @@ public class RuleGrammarParser extends Parser {
             }
             switch (alt12) {
                 case 1 :
-                    // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:113:103: NEWLINE
+                    // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:115:103: NEWLINE
                     {
-                    NEWLINE45=(Token)match(input,NEWLINE,FOLLOW_NEWLINE_in_ruleWhenK484); if (state.failed) return retval; 
+                    NEWLINE45=(Token)match(input,NEWLINE,FOLLOW_NEWLINE_in_ruleWhenK503); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_NEWLINE.add(NEWLINE45);
 
 
                     }
                     break;
                 case 2 :
-                    // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:113:113: ';'
+                    // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:115:113: ';'
                     {
-                    char_literal46=(Token)match(input,25,FOLLOW_25_in_ruleWhenK488); if (state.failed) return retval; 
+                    char_literal46=(Token)match(input,25,FOLLOW_25_in_ruleWhenK507); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_25.add(char_literal46);
 
 
@@ -1356,7 +1356,7 @@ public class RuleGrammarParser extends Parser {
 
 
             // AST REWRITE
-            // elements: ant_class, pattern
+            // elements: pattern, ant_class
             // token labels: 
             // rule labels: retval
             // token list labels: 
@@ -1367,9 +1367,9 @@ public class RuleGrammarParser extends Parser {
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (Object)adaptor.nil();
-            // 113:119: -> ^( ant_class pattern )
+            // 115:119: -> ^( ant_class pattern )
             {
-                // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:113:122: ^( ant_class pattern )
+                // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:115:122: ^( ant_class pattern )
                 {
                 Object root_1 = (Object)adaptor.nil();
                 root_1 = (Object)adaptor.becomeRoot(stream_ant_class.nextNode(), root_1);
@@ -1410,7 +1410,7 @@ public class RuleGrammarParser extends Parser {
     };
 
     // $ANTLR start "ruleThen"
-    // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:115:1: ruleThen : sub1 ( NEWLINE sub1 )* ;
+    // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:117:1: ruleThen : sub1 ( NEWLINE sub1 )* ;
     public final RuleGrammarParser.ruleThen_return ruleThen() throws RecognitionException {
         RuleGrammarParser.ruleThen_return retval = new RuleGrammarParser.ruleThen_return();
         retval.start = input.LT(1);
@@ -1426,18 +1426,18 @@ public class RuleGrammarParser extends Parser {
         Object NEWLINE48_tree=null;
 
         try {
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:116:5: ( sub1 ( NEWLINE sub1 )* )
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:116:10: sub1 ( NEWLINE sub1 )*
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:118:5: ( sub1 ( NEWLINE sub1 )* )
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:118:10: sub1 ( NEWLINE sub1 )*
             {
             root_0 = (Object)adaptor.nil();
 
-            pushFollow(FOLLOW_sub1_in_ruleThen513);
+            pushFollow(FOLLOW_sub1_in_ruleThen532);
             sub147=sub1();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) adaptor.addChild(root_0, sub147.getTree());
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:116:15: ( NEWLINE sub1 )*
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:118:15: ( NEWLINE sub1 )*
             loop13:
             do {
                 int alt13=2;
@@ -1456,14 +1456,14 @@ public class RuleGrammarParser extends Parser {
 
                 switch (alt13) {
             	case 1 :
-            	    // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:116:16: NEWLINE sub1
+            	    // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:118:16: NEWLINE sub1
             	    {
-            	    NEWLINE48=(Token)match(input,NEWLINE,FOLLOW_NEWLINE_in_ruleThen516); if (state.failed) return retval;
+            	    NEWLINE48=(Token)match(input,NEWLINE,FOLLOW_NEWLINE_in_ruleThen535); if (state.failed) return retval;
             	    if ( state.backtracking==0 ) {
             	    NEWLINE48_tree = (Object)adaptor.create(NEWLINE48);
             	    adaptor.addChild(root_0, NEWLINE48_tree);
             	    }
-            	    pushFollow(FOLLOW_sub1_in_ruleThen518);
+            	    pushFollow(FOLLOW_sub1_in_ruleThen537);
             	    sub149=sub1();
 
             	    state._fsp--;
@@ -1507,7 +1507,7 @@ public class RuleGrammarParser extends Parser {
     };
 
     // $ANTLR start "sub1"
-    // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:118:1: sub1 : (~ ( NEWLINE | 'rule' | 'when' | 'then' | 'end' | QUOTE ) )+ ;
+    // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:120:1: sub1 : (~ ( NEWLINE | 'rule' | 'when' | 'then' | 'end' | QUOTE ) )+ ;
     public final RuleGrammarParser.sub1_return sub1() throws RecognitionException {
         RuleGrammarParser.sub1_return retval = new RuleGrammarParser.sub1_return();
         retval.start = input.LT(1);
@@ -1519,12 +1519,12 @@ public class RuleGrammarParser extends Parser {
         Object set50_tree=null;
 
         try {
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:119:5: ( (~ ( NEWLINE | 'rule' | 'when' | 'then' | 'end' | QUOTE ) )+ )
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:119:10: (~ ( NEWLINE | 'rule' | 'when' | 'then' | 'end' | QUOTE ) )+
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:121:5: ( (~ ( NEWLINE | 'rule' | 'when' | 'then' | 'end' | QUOTE ) )+ )
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:121:10: (~ ( NEWLINE | 'rule' | 'when' | 'then' | 'end' | QUOTE ) )+
             {
             root_0 = (Object)adaptor.nil();
 
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:119:10: (~ ( NEWLINE | 'rule' | 'when' | 'then' | 'end' | QUOTE ) )+
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:121:10: (~ ( NEWLINE | 'rule' | 'when' | 'then' | 'end' | QUOTE ) )+
             int cnt14=0;
             loop14:
             do {
@@ -1538,7 +1538,7 @@ public class RuleGrammarParser extends Parser {
 
                 switch (alt14) {
             	case 1 :
-            	    // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:119:11: ~ ( NEWLINE | 'rule' | 'when' | 'then' | 'end' | QUOTE )
+            	    // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:121:11: ~ ( NEWLINE | 'rule' | 'when' | 'then' | 'end' | QUOTE )
             	    {
             	    set50=(Token)input.LT(1);
             	    if ( (input.LA(1)>=RULENAME && input.LA(1)<=COMMA)||(input.LA(1)>=INEQUALITY && input.LA(1)<=WS)||(input.LA(1)>=20 && input.LA(1)<=42) ) {
@@ -1595,7 +1595,7 @@ public class RuleGrammarParser extends Parser {
     };
 
     // $ANTLR start "sub2"
-    // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:121:1: sub2 : (~ ( NEWLINE | 'declare' | 'end' ) )+ ;
+    // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:123:1: sub2 : (~ ( NEWLINE | 'declare' | 'end' ) )+ ;
     public final RuleGrammarParser.sub2_return sub2() throws RecognitionException {
         RuleGrammarParser.sub2_return retval = new RuleGrammarParser.sub2_return();
         retval.start = input.LT(1);
@@ -1607,12 +1607,12 @@ public class RuleGrammarParser extends Parser {
         Object set51_tree=null;
 
         try {
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:122:5: ( (~ ( NEWLINE | 'declare' | 'end' ) )+ )
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:122:10: (~ ( NEWLINE | 'declare' | 'end' ) )+
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:124:5: ( (~ ( NEWLINE | 'declare' | 'end' ) )+ )
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:124:10: (~ ( NEWLINE | 'declare' | 'end' ) )+
             {
             root_0 = (Object)adaptor.nil();
 
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:122:10: (~ ( NEWLINE | 'declare' | 'end' ) )+
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:124:10: (~ ( NEWLINE | 'declare' | 'end' ) )+
             int cnt15=0;
             loop15:
             do {
@@ -1626,7 +1626,7 @@ public class RuleGrammarParser extends Parser {
 
                 switch (alt15) {
             	case 1 :
-            	    // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:122:11: ~ ( NEWLINE | 'declare' | 'end' )
+            	    // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:124:11: ~ ( NEWLINE | 'declare' | 'end' )
             	    {
             	    set51=(Token)input.LT(1);
             	    if ( (input.LA(1)>=RULENAME && input.LA(1)<=COMMA)||(input.LA(1)>=QUOTE && input.LA(1)<=18)||(input.LA(1)>=21 && input.LA(1)<=42) ) {
@@ -1683,7 +1683,7 @@ public class RuleGrammarParser extends Parser {
     };
 
     // $ANTLR start "declAttribute"
-    // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:124:1: declAttribute : (~ ( NEWLINE | 'end' ) ) ;
+    // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:126:1: declAttribute : (~ ( NEWLINE | 'end' ) ) ;
     public final RuleGrammarParser.declAttribute_return declAttribute() throws RecognitionException {
         RuleGrammarParser.declAttribute_return retval = new RuleGrammarParser.declAttribute_return();
         retval.start = input.LT(1);
@@ -1695,13 +1695,13 @@ public class RuleGrammarParser extends Parser {
         Object set52_tree=null;
 
         try {
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:125:5: ( (~ ( NEWLINE | 'end' ) ) )
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:125:10: (~ ( NEWLINE | 'end' ) )
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:127:5: ( (~ ( NEWLINE | 'end' ) ) )
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:127:10: (~ ( NEWLINE | 'end' ) )
             {
             root_0 = (Object)adaptor.nil();
 
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:125:10: (~ ( NEWLINE | 'end' ) )
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:125:11: ~ ( NEWLINE | 'end' )
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:127:10: (~ ( NEWLINE | 'end' ) )
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:127:11: ~ ( NEWLINE | 'end' )
             {
             set52=(Token)input.LT(1);
             if ( (input.LA(1)>=RULENAME && input.LA(1)<=COMMA)||(input.LA(1)>=QUOTE && input.LA(1)<=18)||(input.LA(1)>=20 && input.LA(1)<=42) ) {
@@ -1747,7 +1747,7 @@ public class RuleGrammarParser extends Parser {
     };
 
     // $ANTLR start "declAttributeType"
-    // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:127:1: declAttributeType : ( 'String' | 'Integer' | 'int' | 'long' | 'Decimal' | 'Char' | 'double' );
+    // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:129:1: declAttributeType : ( 'String' | 'Integer' | 'int' | 'long' | 'Decimal' | 'Char' | 'double' );
     public final RuleGrammarParser.declAttributeType_return declAttributeType() throws RecognitionException {
         RuleGrammarParser.declAttributeType_return retval = new RuleGrammarParser.declAttributeType_return();
         retval.start = input.LT(1);
@@ -1759,7 +1759,7 @@ public class RuleGrammarParser extends Parser {
         Object set53_tree=null;
 
         try {
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:128:5: ( 'String' | 'Integer' | 'int' | 'long' | 'Decimal' | 'Char' | 'double' )
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:130:5: ( 'String' | 'Integer' | 'int' | 'long' | 'Decimal' | 'Char' | 'double' )
             // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:
             {
             root_0 = (Object)adaptor.nil();
@@ -1805,7 +1805,7 @@ public class RuleGrammarParser extends Parser {
     };
 
     // $ANTLR start "ant_class"
-    // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:130:1: ant_class : identifier ;
+    // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:132:1: ant_class : identifier ;
     public final RuleGrammarParser.ant_class_return ant_class() throws RecognitionException {
         RuleGrammarParser.ant_class_return retval = new RuleGrammarParser.ant_class_return();
         retval.start = input.LT(1);
@@ -1817,12 +1817,12 @@ public class RuleGrammarParser extends Parser {
 
 
         try {
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:131:5: ( identifier )
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:131:10: identifier
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:133:5: ( identifier )
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:133:10: identifier
             {
             root_0 = (Object)adaptor.nil();
 
-            pushFollow(FOLLOW_identifier_in_ant_class668);
+            pushFollow(FOLLOW_identifier_in_ant_class687);
             identifier54=identifier();
 
             state._fsp--;
@@ -1871,7 +1871,7 @@ public class RuleGrammarParser extends Parser {
     };
 
     // $ANTLR start "pattern"
-    // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:135:1: pattern : lizy1+= expr_comma ( ',' lizy2+= expr_comma )* -> {$pattern::has && $lizy2.size() > 0}? ^( ',' ( $lizy1)+ BREAK ( $lizy2)+ ) -> {$pattern::has}? ^( ',' ( $lizy1)+ BREAK ) -> {$lizy1.size() == 0}? ^( COMMA BREAK ( $lizy2)+ ) -> ^( COMMA ( $lizy1)+ BREAK ) ;
+    // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:137:1: pattern : lizy1+= expr_comma ( ',' lizy1+= expr_comma )* -> {$pattern::has}? ^( ',' ( $lizy1)+ ) -> ^( COMMA ( $lizy1)+ ) ;
     public final RuleGrammarParser.pattern_return pattern() throws RecognitionException {
         pattern_stack.push(new pattern_scope());
         RuleGrammarParser.pattern_return retval = new RuleGrammarParser.pattern_return();
@@ -1881,9 +1881,7 @@ public class RuleGrammarParser extends Parser {
 
         Token char_literal55=null;
         List list_lizy1=null;
-        List list_lizy2=null;
         RuleReturnScope lizy1 = null;
-        RuleReturnScope lizy2 = null;
         Object char_literal55_tree=null;
         RewriteRuleTokenStream stream_35=new RewriteRuleTokenStream(adaptor,"token 35");
         RewriteRuleSubtreeStream stream_expr_comma=new RewriteRuleSubtreeStream(adaptor,"rule expr_comma");
@@ -1893,10 +1891,10 @@ public class RuleGrammarParser extends Parser {
             ((pattern_scope)pattern_stack.peek()).numOfUses = 0;
 
         try {
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:159:5: (lizy1+= expr_comma ( ',' lizy2+= expr_comma )* -> {$pattern::has && $lizy2.size() > 0}? ^( ',' ( $lizy1)+ BREAK ( $lizy2)+ ) -> {$pattern::has}? ^( ',' ( $lizy1)+ BREAK ) -> {$lizy1.size() == 0}? ^( COMMA BREAK ( $lizy2)+ ) -> ^( COMMA ( $lizy1)+ BREAK ) )
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:159:9: lizy1+= expr_comma ( ',' lizy2+= expr_comma )*
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:161:5: (lizy1+= expr_comma ( ',' lizy1+= expr_comma )* -> {$pattern::has}? ^( ',' ( $lizy1)+ ) -> ^( COMMA ( $lizy1)+ ) )
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:161:9: lizy1+= expr_comma ( ',' lizy1+= expr_comma )*
             {
-            pushFollow(FOLLOW_expr_comma_in_pattern695);
+            pushFollow(FOLLOW_expr_comma_in_pattern714);
             lizy1=expr_comma();
 
             state._fsp--;
@@ -1905,7 +1903,7 @@ public class RuleGrammarParser extends Parser {
             if (list_lizy1==null) list_lizy1=new ArrayList();
             list_lizy1.add(lizy1.getTree());
 
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:159:27: ( ',' lizy2+= expr_comma )*
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:161:27: ( ',' lizy1+= expr_comma )*
             loop16:
             do {
                 int alt16=2;
@@ -1918,19 +1916,19 @@ public class RuleGrammarParser extends Parser {
 
                 switch (alt16) {
             	case 1 :
-            	    // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:159:28: ',' lizy2+= expr_comma
+            	    // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:161:28: ',' lizy1+= expr_comma
             	    {
-            	    char_literal55=(Token)match(input,35,FOLLOW_35_in_pattern698); if (state.failed) return retval; 
+            	    char_literal55=(Token)match(input,35,FOLLOW_35_in_pattern717); if (state.failed) return retval; 
             	    if ( state.backtracking==0 ) stream_35.add(char_literal55);
 
-            	    pushFollow(FOLLOW_expr_comma_in_pattern702);
-            	    lizy2=expr_comma();
+            	    pushFollow(FOLLOW_expr_comma_in_pattern721);
+            	    lizy1=expr_comma();
 
             	    state._fsp--;
             	    if (state.failed) return retval;
-            	    if ( state.backtracking==0 ) stream_expr_comma.add(lizy2.getTree());
-            	    if (list_lizy2==null) list_lizy2=new ArrayList();
-            	    list_lizy2.add(lizy2.getTree());
+            	    if ( state.backtracking==0 ) stream_expr_comma.add(lizy1.getTree());
+            	    if (list_lizy1==null) list_lizy1=new ArrayList();
+            	    list_lizy1.add(lizy1.getTree());
 
             	    if ( state.backtracking==0 ) {
             	      ((pattern_scope)pattern_stack.peek()).has = true;
@@ -1946,87 +1944,42 @@ public class RuleGrammarParser extends Parser {
 
             if ( state.backtracking==0 ) {
 
-                          //I needed to emit two different lists (one with the uses and the other without)
-                          //so I did the following: 
-                          //1) use two variables lizy1 and lizy2 in the rule for no reason
-                          //2) move everything to lizy2 (there will only be a single elem in lizy1)
-                          //3) move back only the non-users
-                          //4) seperate them with an imaginary break node to simplify later reading
-                          //You won't find any other way to do this without knowledge of how antlr is
-                          //implementing and using these lists behind the scenes.
                           if (((pattern_scope)pattern_stack.peek()).has)
                           {
-              	            list_lizy2.add(0, list_lizy1.get(0));
-              	            list_lizy1.remove(0);
-              	            
-              	            //transfer
-              	            for (int i = 0; i < list_lizy2.size(); i++)
+              	            //Move non-bind-users to the start of the list to simplify things later
+              	            int i;
+              	            for (i = 0; i < list_lizy1.size(); i++)
               	            {
-              	                if (!((pattern_scope)pattern_stack.peek()).usesBind.get(i))
-              	                    list_lizy1.add(list_lizy2.get(i));
-              	            }
-              	            int removed = 0;
-              	            //remove transferred
-              	            for (int i = 0; i < list_lizy2.size() + removed; i++)
-              	            {
-              	                if (!((pattern_scope)pattern_stack.peek()).usesBind.get(i))
+              	                if (((pattern_scope)pattern_stack.peek()).usesBind.get(i))
               	                {
-              	                    list_lizy2.remove(i - removed);
-              	                    removed++;
+              	                    for (int j = list_lizy1.size() - 1; j > i; j--)
+              	                    {
+              	                        if (!((pattern_scope)pattern_stack.peek()).usesBind.get(j))
+              	                            Collections.swap(list_lizy1, i, j);
+              	                    }
               	                }
               	            }
-              	            System.out.println("non-users = " + list_lizy1.size());
-              	            System.out.println("users = " + list_lizy2.size());
+              	            System.out.println("Last non-user = " + i);
               	        }
                       
             }
 
 
             // AST REWRITE
-            // elements: lizy1, 35, lizy2, lizy1, lizy1, lizy2, 35
+            // elements: lizy1, 35, lizy1
             // token labels: 
             // rule labels: retval
             // token list labels: 
-            // rule list labels: lizy2, lizy1
+            // rule list labels: lizy1
             // wildcard labels: 
             if ( state.backtracking==0 ) {
             retval.tree = root_0;
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
-            RewriteRuleSubtreeStream stream_lizy2=new RewriteRuleSubtreeStream(adaptor,"token lizy2",list_lizy2);
             RewriteRuleSubtreeStream stream_lizy1=new RewriteRuleSubtreeStream(adaptor,"token lizy1",list_lizy1);
             root_0 = (Object)adaptor.nil();
-            // 194:5: -> {$pattern::has && $lizy2.size() > 0}? ^( ',' ( $lizy1)+ BREAK ( $lizy2)+ )
-            if (((pattern_scope)pattern_stack.peek()).has && list_lizy2.size() > 0) {
-                // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:194:47: ^( ',' ( $lizy1)+ BREAK ( $lizy2)+ )
-                {
-                Object root_1 = (Object)adaptor.nil();
-                root_1 = (Object)adaptor.becomeRoot(stream_35.nextNode(), root_1);
-
-                if ( !(stream_lizy1.hasNext()) ) {
-                    throw new RewriteEarlyExitException();
-                }
-                while ( stream_lizy1.hasNext() ) {
-                    adaptor.addChild(root_1, stream_lizy1.nextTree());
-
-                }
-                stream_lizy1.reset();
-                adaptor.addChild(root_1, (Object)adaptor.create(BREAK, "BREAK"));
-                if ( !(stream_lizy2.hasNext()) ) {
-                    throw new RewriteEarlyExitException();
-                }
-                while ( stream_lizy2.hasNext() ) {
-                    adaptor.addChild(root_1, stream_lizy2.nextTree());
-
-                }
-                stream_lizy2.reset();
-
-                adaptor.addChild(root_0, root_1);
-                }
-
-            }
-            else // 195:5: -> {$pattern::has}? ^( ',' ( $lizy1)+ BREAK )
+            // 181:5: -> {$pattern::has}? ^( ',' ( $lizy1)+ )
             if (((pattern_scope)pattern_stack.peek()).has) {
-                // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:195:26: ^( ',' ( $lizy1)+ BREAK )
+                // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:181:26: ^( ',' ( $lizy1)+ )
                 {
                 Object root_1 = (Object)adaptor.nil();
                 root_1 = (Object)adaptor.becomeRoot(stream_35.nextNode(), root_1);
@@ -2039,36 +1992,14 @@ public class RuleGrammarParser extends Parser {
 
                 }
                 stream_lizy1.reset();
-                adaptor.addChild(root_1, (Object)adaptor.create(BREAK, "BREAK"));
 
                 adaptor.addChild(root_0, root_1);
                 }
 
             }
-            else // 196:5: -> {$lizy1.size() == 0}? ^( COMMA BREAK ( $lizy2)+ )
-            if (list_lizy1.size() == 0) {
-                // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:196:31: ^( COMMA BREAK ( $lizy2)+ )
-                {
-                Object root_1 = (Object)adaptor.nil();
-                root_1 = (Object)adaptor.becomeRoot((Object)adaptor.create(COMMA, "COMMA"), root_1);
-
-                adaptor.addChild(root_1, (Object)adaptor.create(BREAK, "BREAK"));
-                if ( !(stream_lizy2.hasNext()) ) {
-                    throw new RewriteEarlyExitException();
-                }
-                while ( stream_lizy2.hasNext() ) {
-                    adaptor.addChild(root_1, stream_lizy2.nextTree());
-
-                }
-                stream_lizy2.reset();
-
-                adaptor.addChild(root_0, root_1);
-                }
-
-            }
-            else // 197:5: -> ^( COMMA ( $lizy1)+ BREAK )
+            else // 182:5: -> ^( COMMA ( $lizy1)+ )
             {
-                // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:197:9: ^( COMMA ( $lizy1)+ BREAK )
+                // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:182:9: ^( COMMA ( $lizy1)+ )
                 {
                 Object root_1 = (Object)adaptor.nil();
                 root_1 = (Object)adaptor.becomeRoot((Object)adaptor.create(COMMA, "COMMA"), root_1);
@@ -2081,7 +2012,6 @@ public class RuleGrammarParser extends Parser {
 
                 }
                 stream_lizy1.reset();
-                adaptor.addChild(root_1, (Object)adaptor.create(BREAK, "BREAK"));
 
                 adaptor.addChild(root_0, root_1);
                 }
@@ -2118,7 +2048,7 @@ public class RuleGrammarParser extends Parser {
     };
 
     // $ANTLR start "expr_comma"
-    // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:199:1: expr_comma : expr_and ;
+    // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:184:1: expr_comma : expr_and ;
     public final RuleGrammarParser.expr_comma_return expr_comma() throws RecognitionException {
         RuleGrammarParser.expr_comma_return retval = new RuleGrammarParser.expr_comma_return();
         retval.start = input.LT(1);
@@ -2134,12 +2064,12 @@ public class RuleGrammarParser extends Parser {
             ((pattern_scope)pattern_stack.peek()).usesBind.add(false);
 
         try {
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:204:5: ( expr_and )
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:204:10: expr_and
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:189:5: ( expr_and )
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:189:10: expr_and
             {
             root_0 = (Object)adaptor.nil();
 
-            pushFollow(FOLLOW_expr_and_in_expr_comma814);
+            pushFollow(FOLLOW_expr_and_in_expr_comma787);
             expr_and56=expr_and();
 
             state._fsp--;
@@ -2174,7 +2104,7 @@ public class RuleGrammarParser extends Parser {
     };
 
     // $ANTLR start "expr_and"
-    // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:206:1: expr_and : expr_or ( '&&' expr_or )* ;
+    // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:191:1: expr_and : expr_or ( '&&' expr_or )* ;
     public final RuleGrammarParser.expr_and_return expr_and() throws RecognitionException {
         RuleGrammarParser.expr_and_return retval = new RuleGrammarParser.expr_and_return();
         retval.start = input.LT(1);
@@ -2190,18 +2120,18 @@ public class RuleGrammarParser extends Parser {
         Object string_literal58_tree=null;
 
         try {
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:207:5: ( expr_or ( '&&' expr_or )* )
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:207:9: expr_or ( '&&' expr_or )*
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:192:5: ( expr_or ( '&&' expr_or )* )
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:192:9: expr_or ( '&&' expr_or )*
             {
             root_0 = (Object)adaptor.nil();
 
-            pushFollow(FOLLOW_expr_or_in_expr_and832);
+            pushFollow(FOLLOW_expr_or_in_expr_and805);
             expr_or57=expr_or();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) adaptor.addChild(root_0, expr_or57.getTree());
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:207:17: ( '&&' expr_or )*
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:192:17: ( '&&' expr_or )*
             loop17:
             do {
                 int alt17=2;
@@ -2214,14 +2144,14 @@ public class RuleGrammarParser extends Parser {
 
                 switch (alt17) {
             	case 1 :
-            	    // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:207:18: '&&' expr_or
+            	    // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:192:18: '&&' expr_or
             	    {
-            	    string_literal58=(Token)match(input,36,FOLLOW_36_in_expr_and835); if (state.failed) return retval;
+            	    string_literal58=(Token)match(input,36,FOLLOW_36_in_expr_and808); if (state.failed) return retval;
             	    if ( state.backtracking==0 ) {
             	    string_literal58_tree = (Object)adaptor.create(string_literal58);
             	    root_0 = (Object)adaptor.becomeRoot(string_literal58_tree, root_0);
             	    }
-            	    pushFollow(FOLLOW_expr_or_in_expr_and839);
+            	    pushFollow(FOLLOW_expr_or_in_expr_and812);
             	    expr_or59=expr_or();
 
             	    state._fsp--;
@@ -2265,7 +2195,7 @@ public class RuleGrammarParser extends Parser {
     };
 
     // $ANTLR start "expr_or"
-    // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:209:1: expr_or : expr_bool_atom ( '||' expr_bool_atom )* ;
+    // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:194:1: expr_or : expr_bool_atom ( '||' expr_bool_atom )* ;
     public final RuleGrammarParser.expr_or_return expr_or() throws RecognitionException {
         RuleGrammarParser.expr_or_return retval = new RuleGrammarParser.expr_or_return();
         retval.start = input.LT(1);
@@ -2281,18 +2211,18 @@ public class RuleGrammarParser extends Parser {
         Object string_literal61_tree=null;
 
         try {
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:210:5: ( expr_bool_atom ( '||' expr_bool_atom )* )
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:210:10: expr_bool_atom ( '||' expr_bool_atom )*
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:195:5: ( expr_bool_atom ( '||' expr_bool_atom )* )
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:195:10: expr_bool_atom ( '||' expr_bool_atom )*
             {
             root_0 = (Object)adaptor.nil();
 
-            pushFollow(FOLLOW_expr_bool_atom_in_expr_or856);
+            pushFollow(FOLLOW_expr_bool_atom_in_expr_or829);
             expr_bool_atom60=expr_bool_atom();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) adaptor.addChild(root_0, expr_bool_atom60.getTree());
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:210:25: ( '||' expr_bool_atom )*
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:195:25: ( '||' expr_bool_atom )*
             loop18:
             do {
                 int alt18=2;
@@ -2305,14 +2235,14 @@ public class RuleGrammarParser extends Parser {
 
                 switch (alt18) {
             	case 1 :
-            	    // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:210:26: '||' expr_bool_atom
+            	    // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:195:26: '||' expr_bool_atom
             	    {
-            	    string_literal61=(Token)match(input,37,FOLLOW_37_in_expr_or859); if (state.failed) return retval;
+            	    string_literal61=(Token)match(input,37,FOLLOW_37_in_expr_or832); if (state.failed) return retval;
             	    if ( state.backtracking==0 ) {
             	    string_literal61_tree = (Object)adaptor.create(string_literal61);
             	    root_0 = (Object)adaptor.becomeRoot(string_literal61_tree, root_0);
             	    }
-            	    pushFollow(FOLLOW_expr_bool_atom_in_expr_or863);
+            	    pushFollow(FOLLOW_expr_bool_atom_in_expr_or836);
             	    expr_bool_atom62=expr_bool_atom();
 
             	    state._fsp--;
@@ -2356,7 +2286,7 @@ public class RuleGrammarParser extends Parser {
     };
 
     // $ANTLR start "expr_bool_atom"
-    // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:213:1: expr_bool_atom : ( expr_ineq ( INEQUALITY expr_ineq )* | '(' expr_and ')' );
+    // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:198:1: expr_bool_atom : ( expr_ineq ( INEQUALITY expr_ineq )* | '(' expr_and ')' );
     public final RuleGrammarParser.expr_bool_atom_return expr_bool_atom() throws RecognitionException {
         RuleGrammarParser.expr_bool_atom_return retval = new RuleGrammarParser.expr_bool_atom_return();
         retval.start = input.LT(1);
@@ -2378,7 +2308,7 @@ public class RuleGrammarParser extends Parser {
         Object char_literal68_tree=null;
 
         try {
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:214:5: ( expr_ineq ( INEQUALITY expr_ineq )* | '(' expr_and ')' )
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:199:5: ( expr_ineq ( INEQUALITY expr_ineq )* | '(' expr_and ')' )
             int alt20=2;
             int LA20_0 = input.LA(1);
 
@@ -2411,17 +2341,17 @@ public class RuleGrammarParser extends Parser {
             }
             switch (alt20) {
                 case 1 :
-                    // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:214:9: expr_ineq ( INEQUALITY expr_ineq )*
+                    // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:199:9: expr_ineq ( INEQUALITY expr_ineq )*
                     {
                     root_0 = (Object)adaptor.nil();
 
-                    pushFollow(FOLLOW_expr_ineq_in_expr_bool_atom888);
+                    pushFollow(FOLLOW_expr_ineq_in_expr_bool_atom861);
                     expr_ineq63=expr_ineq();
 
                     state._fsp--;
                     if (state.failed) return retval;
                     if ( state.backtracking==0 ) adaptor.addChild(root_0, expr_ineq63.getTree());
-                    // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:214:19: ( INEQUALITY expr_ineq )*
+                    // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:199:19: ( INEQUALITY expr_ineq )*
                     loop19:
                     do {
                         int alt19=2;
@@ -2434,14 +2364,14 @@ public class RuleGrammarParser extends Parser {
 
                         switch (alt19) {
                     	case 1 :
-                    	    // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:214:20: INEQUALITY expr_ineq
+                    	    // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:199:20: INEQUALITY expr_ineq
                     	    {
-                    	    INEQUALITY64=(Token)match(input,INEQUALITY,FOLLOW_INEQUALITY_in_expr_bool_atom891); if (state.failed) return retval;
+                    	    INEQUALITY64=(Token)match(input,INEQUALITY,FOLLOW_INEQUALITY_in_expr_bool_atom864); if (state.failed) return retval;
                     	    if ( state.backtracking==0 ) {
                     	    INEQUALITY64_tree = (Object)adaptor.create(INEQUALITY64);
                     	    root_0 = (Object)adaptor.becomeRoot(INEQUALITY64_tree, root_0);
                     	    }
-                    	    pushFollow(FOLLOW_expr_ineq_in_expr_bool_atom895);
+                    	    pushFollow(FOLLOW_expr_ineq_in_expr_bool_atom868);
                     	    expr_ineq65=expr_ineq();
 
                     	    state._fsp--;
@@ -2460,18 +2390,18 @@ public class RuleGrammarParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:215:9: '(' expr_and ')'
+                    // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:200:9: '(' expr_and ')'
                     {
                     root_0 = (Object)adaptor.nil();
 
-                    char_literal66=(Token)match(input,23,FOLLOW_23_in_expr_bool_atom907); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_and_in_expr_bool_atom911);
+                    char_literal66=(Token)match(input,23,FOLLOW_23_in_expr_bool_atom880); if (state.failed) return retval;
+                    pushFollow(FOLLOW_expr_and_in_expr_bool_atom884);
                     expr_and67=expr_and();
 
                     state._fsp--;
                     if (state.failed) return retval;
                     if ( state.backtracking==0 ) adaptor.addChild(root_0, expr_and67.getTree());
-                    char_literal68=(Token)match(input,24,FOLLOW_24_in_expr_bool_atom913); if (state.failed) return retval;
+                    char_literal68=(Token)match(input,24,FOLLOW_24_in_expr_bool_atom886); if (state.failed) return retval;
 
                     }
                     break;
@@ -2503,7 +2433,7 @@ public class RuleGrammarParser extends Parser {
     };
 
     // $ANTLR start "expr_ineq"
-    // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:218:1: expr_ineq : expr_add_sub ( EQUALITY expr_add_sub )* ;
+    // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:203:1: expr_ineq : expr_add_sub ( EQUALITY expr_add_sub )* ;
     public final RuleGrammarParser.expr_ineq_return expr_ineq() throws RecognitionException {
         RuleGrammarParser.expr_ineq_return retval = new RuleGrammarParser.expr_ineq_return();
         retval.start = input.LT(1);
@@ -2519,18 +2449,18 @@ public class RuleGrammarParser extends Parser {
         Object EQUALITY70_tree=null;
 
         try {
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:219:5: ( expr_add_sub ( EQUALITY expr_add_sub )* )
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:219:9: expr_add_sub ( EQUALITY expr_add_sub )*
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:204:5: ( expr_add_sub ( EQUALITY expr_add_sub )* )
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:204:9: expr_add_sub ( EQUALITY expr_add_sub )*
             {
             root_0 = (Object)adaptor.nil();
 
-            pushFollow(FOLLOW_expr_add_sub_in_expr_ineq938);
+            pushFollow(FOLLOW_expr_add_sub_in_expr_ineq911);
             expr_add_sub69=expr_add_sub();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) adaptor.addChild(root_0, expr_add_sub69.getTree());
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:219:22: ( EQUALITY expr_add_sub )*
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:204:22: ( EQUALITY expr_add_sub )*
             loop21:
             do {
                 int alt21=2;
@@ -2543,14 +2473,14 @@ public class RuleGrammarParser extends Parser {
 
                 switch (alt21) {
             	case 1 :
-            	    // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:219:23: EQUALITY expr_add_sub
+            	    // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:204:23: EQUALITY expr_add_sub
             	    {
-            	    EQUALITY70=(Token)match(input,EQUALITY,FOLLOW_EQUALITY_in_expr_ineq941); if (state.failed) return retval;
+            	    EQUALITY70=(Token)match(input,EQUALITY,FOLLOW_EQUALITY_in_expr_ineq914); if (state.failed) return retval;
             	    if ( state.backtracking==0 ) {
             	    EQUALITY70_tree = (Object)adaptor.create(EQUALITY70);
             	    root_0 = (Object)adaptor.becomeRoot(EQUALITY70_tree, root_0);
             	    }
-            	    pushFollow(FOLLOW_expr_add_sub_in_expr_ineq945);
+            	    pushFollow(FOLLOW_expr_add_sub_in_expr_ineq918);
             	    expr_add_sub71=expr_add_sub();
 
             	    state._fsp--;
@@ -2594,7 +2524,7 @@ public class RuleGrammarParser extends Parser {
     };
 
     // $ANTLR start "expr_add_sub"
-    // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:222:1: expr_add_sub : expr_mul_div ( ( '+' | '-' ) expr_mul_div )* ;
+    // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:207:1: expr_add_sub : expr_mul_div ( ( '+' | '-' ) expr_mul_div )* ;
     public final RuleGrammarParser.expr_add_sub_return expr_add_sub() throws RecognitionException {
         RuleGrammarParser.expr_add_sub_return retval = new RuleGrammarParser.expr_add_sub_return();
         retval.start = input.LT(1);
@@ -2612,18 +2542,18 @@ public class RuleGrammarParser extends Parser {
         Object char_literal74_tree=null;
 
         try {
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:223:5: ( expr_mul_div ( ( '+' | '-' ) expr_mul_div )* )
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:223:9: expr_mul_div ( ( '+' | '-' ) expr_mul_div )*
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:208:5: ( expr_mul_div ( ( '+' | '-' ) expr_mul_div )* )
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:208:9: expr_mul_div ( ( '+' | '-' ) expr_mul_div )*
             {
             root_0 = (Object)adaptor.nil();
 
-            pushFollow(FOLLOW_expr_mul_div_in_expr_add_sub970);
+            pushFollow(FOLLOW_expr_mul_div_in_expr_add_sub943);
             expr_mul_div72=expr_mul_div();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) adaptor.addChild(root_0, expr_mul_div72.getTree());
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:223:22: ( ( '+' | '-' ) expr_mul_div )*
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:208:22: ( ( '+' | '-' ) expr_mul_div )*
             loop23:
             do {
                 int alt23=2;
@@ -2636,9 +2566,9 @@ public class RuleGrammarParser extends Parser {
 
                 switch (alt23) {
             	case 1 :
-            	    // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:223:24: ( '+' | '-' ) expr_mul_div
+            	    // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:208:24: ( '+' | '-' ) expr_mul_div
             	    {
-            	    // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:223:24: ( '+' | '-' )
+            	    // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:208:24: ( '+' | '-' )
             	    int alt22=2;
             	    int LA22_0 = input.LA(1);
 
@@ -2657,9 +2587,9 @@ public class RuleGrammarParser extends Parser {
             	    }
             	    switch (alt22) {
             	        case 1 :
-            	            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:223:25: '+'
+            	            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:208:25: '+'
             	            {
-            	            char_literal73=(Token)match(input,38,FOLLOW_38_in_expr_add_sub975); if (state.failed) return retval;
+            	            char_literal73=(Token)match(input,38,FOLLOW_38_in_expr_add_sub948); if (state.failed) return retval;
             	            if ( state.backtracking==0 ) {
             	            char_literal73_tree = (Object)adaptor.create(char_literal73);
             	            root_0 = (Object)adaptor.becomeRoot(char_literal73_tree, root_0);
@@ -2668,9 +2598,9 @@ public class RuleGrammarParser extends Parser {
             	            }
             	            break;
             	        case 2 :
-            	            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:223:33: '-'
+            	            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:208:33: '-'
             	            {
-            	            char_literal74=(Token)match(input,39,FOLLOW_39_in_expr_add_sub981); if (state.failed) return retval;
+            	            char_literal74=(Token)match(input,39,FOLLOW_39_in_expr_add_sub954); if (state.failed) return retval;
             	            if ( state.backtracking==0 ) {
             	            char_literal74_tree = (Object)adaptor.create(char_literal74);
             	            root_0 = (Object)adaptor.becomeRoot(char_literal74_tree, root_0);
@@ -2681,7 +2611,7 @@ public class RuleGrammarParser extends Parser {
 
             	    }
 
-            	    pushFollow(FOLLOW_expr_mul_div_in_expr_add_sub986);
+            	    pushFollow(FOLLOW_expr_mul_div_in_expr_add_sub959);
             	    expr_mul_div75=expr_mul_div();
 
             	    state._fsp--;
@@ -2725,7 +2655,7 @@ public class RuleGrammarParser extends Parser {
     };
 
     // $ANTLR start "expr_mul_div"
-    // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:226:1: expr_mul_div : expr_unary ( ( '*' | '/' ) expr_unary )* ;
+    // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:211:1: expr_mul_div : expr_unary ( ( '*' | '/' ) expr_unary )* ;
     public final RuleGrammarParser.expr_mul_div_return expr_mul_div() throws RecognitionException {
         RuleGrammarParser.expr_mul_div_return retval = new RuleGrammarParser.expr_mul_div_return();
         retval.start = input.LT(1);
@@ -2743,18 +2673,18 @@ public class RuleGrammarParser extends Parser {
         Object char_literal78_tree=null;
 
         try {
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:227:5: ( expr_unary ( ( '*' | '/' ) expr_unary )* )
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:227:9: expr_unary ( ( '*' | '/' ) expr_unary )*
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:212:5: ( expr_unary ( ( '*' | '/' ) expr_unary )* )
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:212:9: expr_unary ( ( '*' | '/' ) expr_unary )*
             {
             root_0 = (Object)adaptor.nil();
 
-            pushFollow(FOLLOW_expr_unary_in_expr_mul_div1011);
+            pushFollow(FOLLOW_expr_unary_in_expr_mul_div984);
             expr_unary76=expr_unary();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) adaptor.addChild(root_0, expr_unary76.getTree());
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:227:20: ( ( '*' | '/' ) expr_unary )*
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:212:20: ( ( '*' | '/' ) expr_unary )*
             loop25:
             do {
                 int alt25=2;
@@ -2767,9 +2697,9 @@ public class RuleGrammarParser extends Parser {
 
                 switch (alt25) {
             	case 1 :
-            	    // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:227:22: ( '*' | '/' ) expr_unary
+            	    // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:212:22: ( '*' | '/' ) expr_unary
             	    {
-            	    // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:227:22: ( '*' | '/' )
+            	    // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:212:22: ( '*' | '/' )
             	    int alt24=2;
             	    int LA24_0 = input.LA(1);
 
@@ -2788,9 +2718,9 @@ public class RuleGrammarParser extends Parser {
             	    }
             	    switch (alt24) {
             	        case 1 :
-            	            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:227:23: '*'
+            	            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:212:23: '*'
             	            {
-            	            char_literal77=(Token)match(input,40,FOLLOW_40_in_expr_mul_div1016); if (state.failed) return retval;
+            	            char_literal77=(Token)match(input,40,FOLLOW_40_in_expr_mul_div989); if (state.failed) return retval;
             	            if ( state.backtracking==0 ) {
             	            char_literal77_tree = (Object)adaptor.create(char_literal77);
             	            root_0 = (Object)adaptor.becomeRoot(char_literal77_tree, root_0);
@@ -2799,9 +2729,9 @@ public class RuleGrammarParser extends Parser {
             	            }
             	            break;
             	        case 2 :
-            	            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:227:31: '/'
+            	            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:212:31: '/'
             	            {
-            	            char_literal78=(Token)match(input,41,FOLLOW_41_in_expr_mul_div1022); if (state.failed) return retval;
+            	            char_literal78=(Token)match(input,41,FOLLOW_41_in_expr_mul_div995); if (state.failed) return retval;
             	            if ( state.backtracking==0 ) {
             	            char_literal78_tree = (Object)adaptor.create(char_literal78);
             	            root_0 = (Object)adaptor.becomeRoot(char_literal78_tree, root_0);
@@ -2812,7 +2742,7 @@ public class RuleGrammarParser extends Parser {
 
             	    }
 
-            	    pushFollow(FOLLOW_expr_unary_in_expr_mul_div1027);
+            	    pushFollow(FOLLOW_expr_unary_in_expr_mul_div1000);
             	    expr_unary79=expr_unary();
 
             	    state._fsp--;
@@ -2862,7 +2792,7 @@ public class RuleGrammarParser extends Parser {
     };
 
     // $ANTLR start "expr_unary"
-    // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:230:1: expr_unary : ( ( '$' | '$' m1= identifier ':' )? m2= identifier -> {$expr_unary::binding}? ^( '$' $m1 ':' $m2) -> {$expr_unary::bound}? ^( '$' $m2) -> $m2 | '(' expr_add_sub ')' | INT );
+    // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:215:1: expr_unary : ( ( '$' | '$' m1= identifier ':' )? m2= identifier -> {$expr_unary::binding}? ^( '$' $m1 ':' $m2) -> {$expr_unary::bound}? ^( '$' $m2) -> $m2 | '(' expr_add_sub ')' | INT );
     public final RuleGrammarParser.expr_unary_return expr_unary() throws RecognitionException {
         expr_unary_stack.push(new expr_unary_scope());
         RuleGrammarParser.expr_unary_return retval = new RuleGrammarParser.expr_unary_return();
@@ -2897,7 +2827,7 @@ public class RuleGrammarParser extends Parser {
             ((expr_unary_scope)expr_unary_stack.peek()).bound = false;
 
         try {
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:239:5: ( ( '$' | '$' m1= identifier ':' )? m2= identifier -> {$expr_unary::binding}? ^( '$' $m1 ':' $m2) -> {$expr_unary::bound}? ^( '$' $m2) -> $m2 | '(' expr_add_sub ')' | INT )
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:224:5: ( ( '$' | '$' m1= identifier ':' )? m2= identifier -> {$expr_unary::binding}? ^( '$' $m1 ':' $m2) -> {$expr_unary::bound}? ^( '$' $m2) -> $m2 | '(' expr_add_sub ')' | INT )
             int alt27=3;
             switch ( input.LA(1) ) {
             case ID:
@@ -2926,16 +2856,16 @@ public class RuleGrammarParser extends Parser {
 
             switch (alt27) {
                 case 1 :
-                    // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:239:9: ( '$' | '$' m1= identifier ':' )? m2= identifier
+                    // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:224:9: ( '$' | '$' m1= identifier ':' )? m2= identifier
                     {
-                    // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:239:9: ( '$' | '$' m1= identifier ':' )?
+                    // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:224:9: ( '$' | '$' m1= identifier ':' )?
                     int alt26=3;
                     alt26 = dfa26.predict(input);
                     switch (alt26) {
                         case 1 :
-                            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:239:10: '$'
+                            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:224:10: '$'
                             {
-                            char_literal80=(Token)match(input,42,FOLLOW_42_in_expr_unary1062); if (state.failed) return retval; 
+                            char_literal80=(Token)match(input,42,FOLLOW_42_in_expr_unary1035); if (state.failed) return retval; 
                             if ( state.backtracking==0 ) stream_42.add(char_literal80);
 
                             if ( state.backtracking==0 ) {
@@ -2945,18 +2875,18 @@ public class RuleGrammarParser extends Parser {
                             }
                             break;
                         case 2 :
-                            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:239:108: '$' m1= identifier ':'
+                            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:224:108: '$' m1= identifier ':'
                             {
-                            char_literal81=(Token)match(input,42,FOLLOW_42_in_expr_unary1068); if (state.failed) return retval; 
+                            char_literal81=(Token)match(input,42,FOLLOW_42_in_expr_unary1041); if (state.failed) return retval; 
                             if ( state.backtracking==0 ) stream_42.add(char_literal81);
 
-                            pushFollow(FOLLOW_identifier_in_expr_unary1072);
+                            pushFollow(FOLLOW_identifier_in_expr_unary1045);
                             m1=identifier();
 
                             state._fsp--;
                             if (state.failed) return retval;
                             if ( state.backtracking==0 ) stream_identifier.add(m1.getTree());
-                            char_literal82=(Token)match(input,21,FOLLOW_21_in_expr_unary1074); if (state.failed) return retval; 
+                            char_literal82=(Token)match(input,21,FOLLOW_21_in_expr_unary1047); if (state.failed) return retval; 
                             if ( state.backtracking==0 ) stream_21.add(char_literal82);
 
                             if ( state.backtracking==0 ) {
@@ -2977,7 +2907,7 @@ public class RuleGrammarParser extends Parser {
 
                     }
 
-                    pushFollow(FOLLOW_identifier_in_expr_unary1099);
+                    pushFollow(FOLLOW_identifier_in_expr_unary1072);
                     m2=identifier();
 
                     state._fsp--;
@@ -3000,7 +2930,7 @@ public class RuleGrammarParser extends Parser {
 
 
                     // AST REWRITE
-                    // elements: 42, 42, m2, m2, m2, m1, 21
+                    // elements: m2, 21, 42, m2, m1, m2, 42
                     // token labels: 
                     // rule labels: retval, m1, m2
                     // token list labels: 
@@ -3013,9 +2943,9 @@ public class RuleGrammarParser extends Parser {
                     RewriteRuleSubtreeStream stream_m2=new RewriteRuleSubtreeStream(adaptor,"rule m2",m2!=null?m2.tree:null);
 
                     root_0 = (Object)adaptor.nil();
-                    // 263:5: -> {$expr_unary::binding}? ^( '$' $m1 ':' $m2)
+                    // 248:5: -> {$expr_unary::binding}? ^( '$' $m1 ':' $m2)
                     if (((expr_unary_scope)expr_unary_stack.peek()).binding) {
-                        // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:263:33: ^( '$' $m1 ':' $m2)
+                        // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:248:33: ^( '$' $m1 ':' $m2)
                         {
                         Object root_1 = (Object)adaptor.nil();
                         root_1 = (Object)adaptor.becomeRoot(stream_42.nextNode(), root_1);
@@ -3028,9 +2958,9 @@ public class RuleGrammarParser extends Parser {
                         }
 
                     }
-                    else // 264:5: -> {$expr_unary::bound}? ^( '$' $m2)
+                    else // 249:5: -> {$expr_unary::bound}? ^( '$' $m2)
                     if (((expr_unary_scope)expr_unary_stack.peek()).bound) {
-                        // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:264:31: ^( '$' $m2)
+                        // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:249:31: ^( '$' $m2)
                         {
                         Object root_1 = (Object)adaptor.nil();
                         root_1 = (Object)adaptor.becomeRoot(stream_42.nextNode(), root_1);
@@ -3041,7 +2971,7 @@ public class RuleGrammarParser extends Parser {
                         }
 
                     }
-                    else // 265:5: -> $m2
+                    else // 250:5: -> $m2
                     {
                         adaptor.addChild(root_0, stream_m2.nextTree());
 
@@ -3051,27 +2981,27 @@ public class RuleGrammarParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:266:9: '(' expr_add_sub ')'
+                    // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:251:9: '(' expr_add_sub ')'
                     {
                     root_0 = (Object)adaptor.nil();
 
-                    char_literal83=(Token)match(input,23,FOLLOW_23_in_expr_unary1166); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_add_sub_in_expr_unary1170);
+                    char_literal83=(Token)match(input,23,FOLLOW_23_in_expr_unary1139); if (state.failed) return retval;
+                    pushFollow(FOLLOW_expr_add_sub_in_expr_unary1143);
                     expr_add_sub84=expr_add_sub();
 
                     state._fsp--;
                     if (state.failed) return retval;
                     if ( state.backtracking==0 ) adaptor.addChild(root_0, expr_add_sub84.getTree());
-                    char_literal85=(Token)match(input,24,FOLLOW_24_in_expr_unary1172); if (state.failed) return retval;
+                    char_literal85=(Token)match(input,24,FOLLOW_24_in_expr_unary1145); if (state.failed) return retval;
 
                     }
                     break;
                 case 3 :
-                    // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:267:9: INT
+                    // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:252:9: INT
                     {
                     root_0 = (Object)adaptor.nil();
 
-                    INT86=(Token)match(input,INT,FOLLOW_INT_in_expr_unary1184); if (state.failed) return retval;
+                    INT86=(Token)match(input,INT,FOLLOW_INT_in_expr_unary1157); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
                     INT86_tree = (Object)adaptor.create(INT86);
                     adaptor.addChild(root_0, INT86_tree);
@@ -3108,7 +3038,7 @@ public class RuleGrammarParser extends Parser {
     };
 
     // $ANTLR start "identifier"
-    // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:270:1: identifier : ID ( ID | INT )* ;
+    // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:255:1: identifier : ID ( ID | INT )* ;
     public final RuleGrammarParser.identifier_return identifier() throws RecognitionException {
         RuleGrammarParser.identifier_return retval = new RuleGrammarParser.identifier_return();
         retval.start = input.LT(1);
@@ -3122,17 +3052,17 @@ public class RuleGrammarParser extends Parser {
         Object set88_tree=null;
 
         try {
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:271:5: ( ID ( ID | INT )* )
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:271:10: ID ( ID | INT )*
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:256:5: ( ID ( ID | INT )* )
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:256:10: ID ( ID | INT )*
             {
             root_0 = (Object)adaptor.nil();
 
-            ID87=(Token)match(input,ID,FOLLOW_ID_in_identifier1204); if (state.failed) return retval;
+            ID87=(Token)match(input,ID,FOLLOW_ID_in_identifier1177); if (state.failed) return retval;
             if ( state.backtracking==0 ) {
             ID87_tree = (Object)adaptor.create(ID87);
             adaptor.addChild(root_0, ID87_tree);
             }
-            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:271:13: ( ID | INT )*
+            // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:256:13: ( ID | INT )*
             loop28:
             do {
                 int alt28=2;
@@ -3193,15 +3123,15 @@ public class RuleGrammarParser extends Parser {
 
     // $ANTLR start synpred38_RuleGrammar
     public final void synpred38_RuleGrammar_fragment() throws RecognitionException {   
-        // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:214:9: ( expr_ineq ( INEQUALITY expr_ineq )* )
-        // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:214:9: expr_ineq ( INEQUALITY expr_ineq )*
+        // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:199:9: ( expr_ineq ( INEQUALITY expr_ineq )* )
+        // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:199:9: expr_ineq ( INEQUALITY expr_ineq )*
         {
-        pushFollow(FOLLOW_expr_ineq_in_synpred38_RuleGrammar888);
+        pushFollow(FOLLOW_expr_ineq_in_synpred38_RuleGrammar861);
         expr_ineq();
 
         state._fsp--;
         if (state.failed) return ;
-        // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:214:19: ( INEQUALITY expr_ineq )*
+        // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:199:19: ( INEQUALITY expr_ineq )*
         loop29:
         do {
             int alt29=2;
@@ -3214,10 +3144,10 @@ public class RuleGrammarParser extends Parser {
 
             switch (alt29) {
         	case 1 :
-        	    // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:214:20: INEQUALITY expr_ineq
+        	    // C:\\Users\\Hani\\Documents\\EECE 637\\RuleEngine\\Parser\\RuleGrammar.g:199:20: INEQUALITY expr_ineq
         	    {
-        	    match(input,INEQUALITY,FOLLOW_INEQUALITY_in_synpred38_RuleGrammar891); if (state.failed) return ;
-        	    pushFollow(FOLLOW_expr_ineq_in_synpred38_RuleGrammar895);
+        	    match(input,INEQUALITY,FOLLOW_INEQUALITY_in_synpred38_RuleGrammar864); if (state.failed) return ;
+        	    pushFollow(FOLLOW_expr_ineq_in_synpred38_RuleGrammar868);
         	    expr_ineq();
 
         	    state._fsp--;
@@ -3307,7 +3237,7 @@ public class RuleGrammarParser extends Parser {
             this.transition = DFA26_transition;
         }
         public String getDescription() {
-            return "239:9: ( '$' | '$' m1= identifier ':' )?";
+            return "224:9: ( '$' | '$' m1= identifier ':' )?";
         }
     }
  
@@ -3333,81 +3263,81 @@ public class RuleGrammarParser extends Parser {
     public static final BitSet FOLLOW_declMember_in_decl238 = new BitSet(new long[]{0x0000000000080100L});
     public static final BitSet FOLLOW_NEWLINE_in_decl244 = new BitSet(new long[]{0x0000000000080100L});
     public static final BitSet FOLLOW_19_in_decl247 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_sub2_in_declName274 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_declAttribute_in_declMember293 = new BitSet(new long[]{0x0000000000200000L});
-    public static final BitSet FOLLOW_21_in_declMember295 = new BitSet(new long[]{0x00000007F0000000L});
-    public static final BitSet FOLLOW_declAttributeType_in_declMember297 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_sub1_in_ruleName315 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_QUOTE_in_ruleName320 = new BitSet(new long[]{0x000007FFFFF0FCF0L});
-    public static final BitSet FOLLOW_sub1_in_ruleName322 = new BitSet(new long[]{0x0000000000000200L});
-    public static final BitSet FOLLOW_QUOTE_in_ruleName324 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_NEWLINE_in_ruleWhen358 = new BitSet(new long[]{0x0000000000402100L});
-    public static final BitSet FOLLOW_ruleWhen1_in_ruleWhen361 = new BitSet(new long[]{0x000000000C402102L});
-    public static final BitSet FOLLOW_ruleWhenK_in_ruleWhen363 = new BitSet(new long[]{0x000000000C402102L});
-    public static final BitSet FOLLOW_22_in_ruleWhen1406 = new BitSet(new long[]{0x0000000000402100L});
-    public static final BitSet FOLLOW_ant_class_in_ruleWhen1410 = new BitSet(new long[]{0x0000000000800000L});
-    public static final BitSet FOLLOW_23_in_ruleWhen1414 = new BitSet(new long[]{0x0000040000C03100L});
-    public static final BitSet FOLLOW_pattern_in_ruleWhen1416 = new BitSet(new long[]{0x0000000001000000L});
-    public static final BitSet FOLLOW_24_in_ruleWhen1418 = new BitSet(new long[]{0x0000000002000100L});
-    public static final BitSet FOLLOW_NEWLINE_in_ruleWhen1421 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_25_in_ruleWhen1425 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_26_in_ruleWhenK461 = new BitSet(new long[]{0x0000000000402100L});
-    public static final BitSet FOLLOW_27_in_ruleWhenK465 = new BitSet(new long[]{0x0000000000402100L});
-    public static final BitSet FOLLOW_22_in_ruleWhenK469 = new BitSet(new long[]{0x0000000000402100L});
-    public static final BitSet FOLLOW_ant_class_in_ruleWhenK473 = new BitSet(new long[]{0x0000000000800000L});
-    public static final BitSet FOLLOW_23_in_ruleWhenK477 = new BitSet(new long[]{0x0000040000C03100L});
-    public static final BitSet FOLLOW_pattern_in_ruleWhenK479 = new BitSet(new long[]{0x0000000001000000L});
-    public static final BitSet FOLLOW_24_in_ruleWhenK481 = new BitSet(new long[]{0x0000000002000100L});
-    public static final BitSet FOLLOW_NEWLINE_in_ruleWhenK484 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_25_in_ruleWhenK488 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_sub1_in_ruleThen513 = new BitSet(new long[]{0x0000000000000102L});
-    public static final BitSet FOLLOW_NEWLINE_in_ruleThen516 = new BitSet(new long[]{0x000007FFFFF0FCF0L});
-    public static final BitSet FOLLOW_sub1_in_ruleThen518 = new BitSet(new long[]{0x0000000000000102L});
-    public static final BitSet FOLLOW_set_in_sub1536 = new BitSet(new long[]{0x000007FFFFF0FCF2L});
-    public static final BitSet FOLLOW_set_in_sub2577 = new BitSet(new long[]{0x000007FFFFE7FEF2L});
-    public static final BitSet FOLLOW_set_in_declAttribute606 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_sub2_in_declName293 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_declAttribute_in_declMember312 = new BitSet(new long[]{0x0000000000200000L});
+    public static final BitSet FOLLOW_21_in_declMember314 = new BitSet(new long[]{0x00000007F0000000L});
+    public static final BitSet FOLLOW_declAttributeType_in_declMember316 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_sub1_in_ruleName334 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_QUOTE_in_ruleName339 = new BitSet(new long[]{0x000007FFFFF0FCF0L});
+    public static final BitSet FOLLOW_sub1_in_ruleName341 = new BitSet(new long[]{0x0000000000000200L});
+    public static final BitSet FOLLOW_QUOTE_in_ruleName343 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_NEWLINE_in_ruleWhen377 = new BitSet(new long[]{0x0000000000402100L});
+    public static final BitSet FOLLOW_ruleWhen1_in_ruleWhen380 = new BitSet(new long[]{0x000000000C402102L});
+    public static final BitSet FOLLOW_ruleWhenK_in_ruleWhen382 = new BitSet(new long[]{0x000000000C402102L});
+    public static final BitSet FOLLOW_22_in_ruleWhen1425 = new BitSet(new long[]{0x0000000000402100L});
+    public static final BitSet FOLLOW_ant_class_in_ruleWhen1429 = new BitSet(new long[]{0x0000000000800000L});
+    public static final BitSet FOLLOW_23_in_ruleWhen1433 = new BitSet(new long[]{0x0000040000C03100L});
+    public static final BitSet FOLLOW_pattern_in_ruleWhen1435 = new BitSet(new long[]{0x0000000001000000L});
+    public static final BitSet FOLLOW_24_in_ruleWhen1437 = new BitSet(new long[]{0x0000000002000100L});
+    public static final BitSet FOLLOW_NEWLINE_in_ruleWhen1440 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_25_in_ruleWhen1444 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_26_in_ruleWhenK480 = new BitSet(new long[]{0x0000000000402100L});
+    public static final BitSet FOLLOW_27_in_ruleWhenK484 = new BitSet(new long[]{0x0000000000402100L});
+    public static final BitSet FOLLOW_22_in_ruleWhenK488 = new BitSet(new long[]{0x0000000000402100L});
+    public static final BitSet FOLLOW_ant_class_in_ruleWhenK492 = new BitSet(new long[]{0x0000000000800000L});
+    public static final BitSet FOLLOW_23_in_ruleWhenK496 = new BitSet(new long[]{0x0000040000C03100L});
+    public static final BitSet FOLLOW_pattern_in_ruleWhenK498 = new BitSet(new long[]{0x0000000001000000L});
+    public static final BitSet FOLLOW_24_in_ruleWhenK500 = new BitSet(new long[]{0x0000000002000100L});
+    public static final BitSet FOLLOW_NEWLINE_in_ruleWhenK503 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_25_in_ruleWhenK507 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_sub1_in_ruleThen532 = new BitSet(new long[]{0x0000000000000102L});
+    public static final BitSet FOLLOW_NEWLINE_in_ruleThen535 = new BitSet(new long[]{0x000007FFFFF0FCF0L});
+    public static final BitSet FOLLOW_sub1_in_ruleThen537 = new BitSet(new long[]{0x0000000000000102L});
+    public static final BitSet FOLLOW_set_in_sub1555 = new BitSet(new long[]{0x000007FFFFF0FCF2L});
+    public static final BitSet FOLLOW_set_in_sub2596 = new BitSet(new long[]{0x000007FFFFE7FEF2L});
+    public static final BitSet FOLLOW_set_in_declAttribute625 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_set_in_declAttributeType0 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_identifier_in_ant_class668 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_expr_comma_in_pattern695 = new BitSet(new long[]{0x0000000800000002L});
-    public static final BitSet FOLLOW_35_in_pattern698 = new BitSet(new long[]{0x0000040000C03100L});
-    public static final BitSet FOLLOW_expr_comma_in_pattern702 = new BitSet(new long[]{0x0000000800000002L});
-    public static final BitSet FOLLOW_expr_and_in_expr_comma814 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_expr_or_in_expr_and832 = new BitSet(new long[]{0x0000001000000002L});
-    public static final BitSet FOLLOW_36_in_expr_and835 = new BitSet(new long[]{0x0000040000C03100L});
-    public static final BitSet FOLLOW_expr_or_in_expr_and839 = new BitSet(new long[]{0x0000001000000002L});
-    public static final BitSet FOLLOW_expr_bool_atom_in_expr_or856 = new BitSet(new long[]{0x0000002000000002L});
-    public static final BitSet FOLLOW_37_in_expr_or859 = new BitSet(new long[]{0x0000040000C03100L});
-    public static final BitSet FOLLOW_expr_bool_atom_in_expr_or863 = new BitSet(new long[]{0x0000002000000002L});
-    public static final BitSet FOLLOW_expr_ineq_in_expr_bool_atom888 = new BitSet(new long[]{0x0000000000000402L});
-    public static final BitSet FOLLOW_INEQUALITY_in_expr_bool_atom891 = new BitSet(new long[]{0x0000040000C03100L});
-    public static final BitSet FOLLOW_expr_ineq_in_expr_bool_atom895 = new BitSet(new long[]{0x0000000000000402L});
-    public static final BitSet FOLLOW_23_in_expr_bool_atom907 = new BitSet(new long[]{0x0000040000C03100L});
-    public static final BitSet FOLLOW_expr_and_in_expr_bool_atom911 = new BitSet(new long[]{0x0000000001000000L});
-    public static final BitSet FOLLOW_24_in_expr_bool_atom913 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_expr_add_sub_in_expr_ineq938 = new BitSet(new long[]{0x0000000000000802L});
-    public static final BitSet FOLLOW_EQUALITY_in_expr_ineq941 = new BitSet(new long[]{0x0000040000C03100L});
-    public static final BitSet FOLLOW_expr_add_sub_in_expr_ineq945 = new BitSet(new long[]{0x0000000000000802L});
-    public static final BitSet FOLLOW_expr_mul_div_in_expr_add_sub970 = new BitSet(new long[]{0x000000C000000002L});
-    public static final BitSet FOLLOW_38_in_expr_add_sub975 = new BitSet(new long[]{0x0000040000C03100L});
-    public static final BitSet FOLLOW_39_in_expr_add_sub981 = new BitSet(new long[]{0x0000040000C03100L});
-    public static final BitSet FOLLOW_expr_mul_div_in_expr_add_sub986 = new BitSet(new long[]{0x000000C000000002L});
-    public static final BitSet FOLLOW_expr_unary_in_expr_mul_div1011 = new BitSet(new long[]{0x0000030000000002L});
-    public static final BitSet FOLLOW_40_in_expr_mul_div1016 = new BitSet(new long[]{0x0000040000C03100L});
-    public static final BitSet FOLLOW_41_in_expr_mul_div1022 = new BitSet(new long[]{0x0000040000C03100L});
-    public static final BitSet FOLLOW_expr_unary_in_expr_mul_div1027 = new BitSet(new long[]{0x0000030000000002L});
-    public static final BitSet FOLLOW_42_in_expr_unary1062 = new BitSet(new long[]{0x0000000000402100L});
-    public static final BitSet FOLLOW_42_in_expr_unary1068 = new BitSet(new long[]{0x0000000000402100L});
-    public static final BitSet FOLLOW_identifier_in_expr_unary1072 = new BitSet(new long[]{0x0000000000200000L});
-    public static final BitSet FOLLOW_21_in_expr_unary1074 = new BitSet(new long[]{0x0000000000402100L});
-    public static final BitSet FOLLOW_identifier_in_expr_unary1099 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_23_in_expr_unary1166 = new BitSet(new long[]{0x0000040000C03100L});
-    public static final BitSet FOLLOW_expr_add_sub_in_expr_unary1170 = new BitSet(new long[]{0x0000000001000000L});
-    public static final BitSet FOLLOW_24_in_expr_unary1172 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_INT_in_expr_unary1184 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ID_in_identifier1204 = new BitSet(new long[]{0x0000000000003002L});
-    public static final BitSet FOLLOW_set_in_identifier1206 = new BitSet(new long[]{0x0000000000003002L});
-    public static final BitSet FOLLOW_expr_ineq_in_synpred38_RuleGrammar888 = new BitSet(new long[]{0x0000000000000402L});
-    public static final BitSet FOLLOW_INEQUALITY_in_synpred38_RuleGrammar891 = new BitSet(new long[]{0x0000040000C03100L});
-    public static final BitSet FOLLOW_expr_ineq_in_synpred38_RuleGrammar895 = new BitSet(new long[]{0x0000000000000402L});
+    public static final BitSet FOLLOW_identifier_in_ant_class687 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_expr_comma_in_pattern714 = new BitSet(new long[]{0x0000000800000002L});
+    public static final BitSet FOLLOW_35_in_pattern717 = new BitSet(new long[]{0x0000040000C03100L});
+    public static final BitSet FOLLOW_expr_comma_in_pattern721 = new BitSet(new long[]{0x0000000800000002L});
+    public static final BitSet FOLLOW_expr_and_in_expr_comma787 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_expr_or_in_expr_and805 = new BitSet(new long[]{0x0000001000000002L});
+    public static final BitSet FOLLOW_36_in_expr_and808 = new BitSet(new long[]{0x0000040000C03100L});
+    public static final BitSet FOLLOW_expr_or_in_expr_and812 = new BitSet(new long[]{0x0000001000000002L});
+    public static final BitSet FOLLOW_expr_bool_atom_in_expr_or829 = new BitSet(new long[]{0x0000002000000002L});
+    public static final BitSet FOLLOW_37_in_expr_or832 = new BitSet(new long[]{0x0000040000C03100L});
+    public static final BitSet FOLLOW_expr_bool_atom_in_expr_or836 = new BitSet(new long[]{0x0000002000000002L});
+    public static final BitSet FOLLOW_expr_ineq_in_expr_bool_atom861 = new BitSet(new long[]{0x0000000000000402L});
+    public static final BitSet FOLLOW_INEQUALITY_in_expr_bool_atom864 = new BitSet(new long[]{0x0000040000C03100L});
+    public static final BitSet FOLLOW_expr_ineq_in_expr_bool_atom868 = new BitSet(new long[]{0x0000000000000402L});
+    public static final BitSet FOLLOW_23_in_expr_bool_atom880 = new BitSet(new long[]{0x0000040000C03100L});
+    public static final BitSet FOLLOW_expr_and_in_expr_bool_atom884 = new BitSet(new long[]{0x0000000001000000L});
+    public static final BitSet FOLLOW_24_in_expr_bool_atom886 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_expr_add_sub_in_expr_ineq911 = new BitSet(new long[]{0x0000000000000802L});
+    public static final BitSet FOLLOW_EQUALITY_in_expr_ineq914 = new BitSet(new long[]{0x0000040000C03100L});
+    public static final BitSet FOLLOW_expr_add_sub_in_expr_ineq918 = new BitSet(new long[]{0x0000000000000802L});
+    public static final BitSet FOLLOW_expr_mul_div_in_expr_add_sub943 = new BitSet(new long[]{0x000000C000000002L});
+    public static final BitSet FOLLOW_38_in_expr_add_sub948 = new BitSet(new long[]{0x0000040000C03100L});
+    public static final BitSet FOLLOW_39_in_expr_add_sub954 = new BitSet(new long[]{0x0000040000C03100L});
+    public static final BitSet FOLLOW_expr_mul_div_in_expr_add_sub959 = new BitSet(new long[]{0x000000C000000002L});
+    public static final BitSet FOLLOW_expr_unary_in_expr_mul_div984 = new BitSet(new long[]{0x0000030000000002L});
+    public static final BitSet FOLLOW_40_in_expr_mul_div989 = new BitSet(new long[]{0x0000040000C03100L});
+    public static final BitSet FOLLOW_41_in_expr_mul_div995 = new BitSet(new long[]{0x0000040000C03100L});
+    public static final BitSet FOLLOW_expr_unary_in_expr_mul_div1000 = new BitSet(new long[]{0x0000030000000002L});
+    public static final BitSet FOLLOW_42_in_expr_unary1035 = new BitSet(new long[]{0x0000000000402100L});
+    public static final BitSet FOLLOW_42_in_expr_unary1041 = new BitSet(new long[]{0x0000000000402100L});
+    public static final BitSet FOLLOW_identifier_in_expr_unary1045 = new BitSet(new long[]{0x0000000000200000L});
+    public static final BitSet FOLLOW_21_in_expr_unary1047 = new BitSet(new long[]{0x0000000000402100L});
+    public static final BitSet FOLLOW_identifier_in_expr_unary1072 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_23_in_expr_unary1139 = new BitSet(new long[]{0x0000040000C03100L});
+    public static final BitSet FOLLOW_expr_add_sub_in_expr_unary1143 = new BitSet(new long[]{0x0000000001000000L});
+    public static final BitSet FOLLOW_24_in_expr_unary1145 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_INT_in_expr_unary1157 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ID_in_identifier1177 = new BitSet(new long[]{0x0000000000003002L});
+    public static final BitSet FOLLOW_set_in_identifier1179 = new BitSet(new long[]{0x0000000000003002L});
+    public static final BitSet FOLLOW_expr_ineq_in_synpred38_RuleGrammar861 = new BitSet(new long[]{0x0000000000000402L});
+    public static final BitSet FOLLOW_INEQUALITY_in_synpred38_RuleGrammar864 = new BitSet(new long[]{0x0000040000C03100L});
+    public static final BitSet FOLLOW_expr_ineq_in_synpred38_RuleGrammar868 = new BitSet(new long[]{0x0000000000000402L});
 
 }

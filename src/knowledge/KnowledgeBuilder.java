@@ -1,7 +1,10 @@
 package knowledge;
 
+import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.util.HashMap;
 
 import org.antlr.runtime.*;
 import org.antlr.runtime.tree.*;
@@ -25,6 +28,8 @@ public class KnowledgeBuilder
 	{
 		try
 		{
+			File f = new File(file);
+			directory = f.getParent();
 			ANTLRInputStream input = new ANTLRInputStream(new FileInputStream(file));
 			RuleGrammarLexer lexer = new RuleGrammarLexer(input);
 			CommonTokenStream tokens = new CommonTokenStream(lexer);
@@ -34,11 +39,12 @@ public class KnowledgeBuilder
 			Tree parser_AST = (Tree)result.getTree();
 			System.out.println(parser_AST.toStringTree());
 
+			classTable = RuleGrammarParser.classTable;
+			constructClasses("RuleClasses.txt");
+
 			RETE rete = new RETE();
 
-			// TODO These should be invisible to KnowledgeBuilder
 			rete.constructRETE(parser_AST);
-			// rete.constructBeta();
 			rete.print();
 		}
 		catch (IOException e)
@@ -58,4 +64,40 @@ public class KnowledgeBuilder
 	{
 		return false;
 	}
+
+	/**
+	 * Private function to add the types to the java file that will later be compiled into a RETE
+	 * on-the-fly.
+	 */
+	private void constructClasses(String fileName) throws IOException
+	{
+		FileWriter abstractFile = new FileWriter(directory + "\\abstract_" + fileName, false);
+		FileWriter file = new FileWriter(directory + "\\" + fileName, false);
+
+		abstractFile.write("abstract class DataObject {\r\n");
+		for (String className : classTable.keySet())
+		{
+			HashMap<String, String> myClass = classTable.get(className);
+			file.write("class " + className + " extends DataObject {\r\n");
+
+			for (String attribute : myClass.keySet())
+			{
+				String attributeType = myClass.get(attribute);
+				file.write(attributeType + " " + attribute + ";\r\n");
+			}
+			file.write("public boolean is" + className + "() {\r\n");
+			file.write("return true;\r\n}\r\n");
+
+			abstractFile.write("public boolean is" + className + "() {\r\n");
+			abstractFile.write("return false;\r\n}\r\n");
+			file.write("} \r\n");
+		}
+		abstractFile.write("}\r\n");
+		file.close();
+		abstractFile.close();
+	}
+
+	private HashMap<String, HashMap<String, String>> classTable;
+	private String directory;
+	private int separator;
 }
